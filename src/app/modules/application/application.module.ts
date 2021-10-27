@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ApplicationRoutingModule } from './application-routing.module';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { HelpComponent } from './help/help.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 
 
@@ -12,7 +11,6 @@ import { MyAccountComponent } from './my-account/my-account.component';
   declarations: [
     AppLayoutComponent,
     HelpComponent,
-    HomepageComponent,
     MyAccountComponent
   ],
   imports: [
