@@ -1,11 +1,15 @@
 .wrapper {
-    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1)), url(../../assets/bg-map-01.png);
     height: 100vh;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
     background-color: #333333;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding-bottom: 2rem;
 }
 
 .geografii-main-logo {
@@ -53,13 +57,13 @@
         transform: rotate(0deg);
     }
     25% {
-        transform: rotate(35deg);
+        transform: rotate(60deg);
     }
     50% {
-        transform: rotate(-35deg);
+        transform: rotate(-135deg);
     }
     75% {
-        text-replace: rotate(75deg)
+        text-replace: rotate(190deg)
     }
     to {
         transform: rotate(0deg);
@@ -83,5 +87,5 @@
     width: 10rem;
     top: 6.6rem;
     right: 2.65rem;
-    animation: pin-rotate-animation 3s infinite;
+    animation: pin-rotate-animation 5s infinite;
 }
