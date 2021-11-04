@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CompassComponent } from './welcome-page-utils/compass/compass.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+      WelcomePageComponent,
+      CompassComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule
