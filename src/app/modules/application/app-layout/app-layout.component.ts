@@ -8,17 +8,9 @@ import { Router } from '@angular/router';
 })
 export class AppLayoutComponent implements OnInit {
 
-  navbarOpen = false;
-  loggedUser = false;
-
   constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
-
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
-  }
-
 
 }
