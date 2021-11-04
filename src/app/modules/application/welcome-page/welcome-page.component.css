@@ -1,0 +1,91 @@
+.wrapper {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1)), url(../../assets/bg-map-01.png);
+    height: 100vh;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.geografii-main-logo {
+    max-width: 50rem;
+    margin: 5rem auto;
+    padding: 0 1rem;
+}
+
+.info-text {
+    text-align: center;
+    color: #808080;
+    margin-top: -1rem;
+}
+
+.log-main-button {
+    width: 10rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #333333;
+    font-size: x-large;
+    font-weight: 600;
+    background-color: #cfcdcd;
+    margin-top: -1rem;
+    border-radius: 10px;
+    margin: 1rem auto;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.log-main-button:hover {
+    transform: scale(1.05);
+}
+
+.log-main-button:active {
+    transform: scale(0.9);
+}
+
+.log-main-button:hover~#compass-pin {}
+
+@keyframes pin-rotate-animation {
+    from {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(60deg);
+    }
+    50% {
+        transform: rotate(-135deg);
+    }
+    75% {
+        text-replace: rotate(190deg)
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.info-wrapper {
+    margin-top: 5rem;
+}
+
+#compass-wrapper {
+    width: 15rem;
+    position: absolute;
+    left: 14rem;
+    z-index: 1;
+    transition: 1s ease-in-out;
+}
+
+#compass-pin {
+    position: absolute;
+    width: 10rem;
+    top: 6.6rem;
+    right: 2.65rem;
+    animation: pin-rotate-animation 5s infinite;
+}
