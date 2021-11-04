@@ -1,5 +1,5 @@
 .wrapper {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1)), url(../../assets/bg-map-01.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1)), url(../../../../assets/bg-map-01.png);
     height: 100vh;
     width: auto;
     background-size: cover;
