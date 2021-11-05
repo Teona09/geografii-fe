@@ -7,6 +7,7 @@ import { HelpComponent } from './help/help.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { CompassComponent } from './compass/compass.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CompassComponent } from './compass/compass.component';
   ],
   imports: [
     CommonModule,
-    ApplicationRoutingModule
+    ApplicationRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ApplicationModule { }
