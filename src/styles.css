@@ -2,3 +2,15 @@
 
 @import "~bootstrap/dist/css/bootstrap-grid.min.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+  --maximum: #628547;
+  --dark-see: #98cb90;
+  --laurel: #b5cda3;
+  --tea-green: #c9e4c5;
+  
+  --coyote: #795735;
+  --khaki: #c1ac95;
+  --linen: #faebe0;
+  --isabeline: #f9f5f1;
+}
