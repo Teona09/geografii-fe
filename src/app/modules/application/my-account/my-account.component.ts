@@ -8,19 +8,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class MyAccountComponent implements OnInit {
 
-  form!: FormGroup;
+  form = {} as FormGroup;
   points = 200;
-  
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      userId: [0],
-      firstName: ["Ana", Validators.required],
-      lastName: ["Pop", Validators.required],
-      email: ["pop.ana@mail.com", Validators.required]
-    })
-   }
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    this.form  =this.fb.group({
+      userId: [0],
+      firstName: ["ana", Validators.required],
+      lastName: ["popescu", Validators.required],
+      email: ["ana.popescu@ubb.ro", Validators.required]
+    })
   }
 
 }
