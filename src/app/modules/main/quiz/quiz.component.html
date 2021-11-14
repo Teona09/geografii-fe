@@ -3,21 +3,21 @@
     <div class="hint-up">
       <button
         *ngIf="!seeHint"
-        class="btn btn-warning hint-btn"
+        class="btn text-warning hint-btn"
         type="button"
         (click)="showHint()"
       >
-        Hint
+        <i class="bi bi-lightbulb-fill"></i>
       </button>
     </div>
     <div class="card-body">
-      <h2 class="card-title">{{ quiz.text }}</h2>
+      <h2 class="card-title">{{ quizzes[0].text }}</h2>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <label
           class="options"
-          *ngFor="let answer of answers"
+          *ngFor="let answer of quizzes[0].answers | keyvalue: keepOriginalOrder"
           (click)="select(answer)"
-          >{{ answer.text }} <input type="radio" name="radio" />
+          >{{ answer.key }} <input type="radio" name="radio" />
           <span class="checkmark"></span>
         </label>
       </div>
@@ -33,7 +33,7 @@
       </button>
     </div>
     <div class="card-footer" *ngIf="seeHint">
-      <div class="hint">{{ quiz.hint }}</div>
+      <div class="hint">{{ quizzes[0].hint }}</div>
       <button
         class="btn btn-success submit-btn"
         type="button"
@@ -48,21 +48,21 @@
     <div class="hint-up">
       <button
         *ngIf="!seeHint"
-        class="btn btn-warning hint-btn"
+        class="btn text-warning hint-btn"
         type="button"
         (click)="showHint()"
       >
-        Hint
+        <i class="bi bi-lightbulb-fill"></i>
       </button>
     </div>
     <div class="card-body">
-      <h2 class="card-title">{{ quiz.text }}</h2>
+      <h2 class="card-title">{{ quizzes[1].text }}</h2>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <label
           class="options"
-          *ngFor="let answer of answers"
+          *ngFor="let answer of quizzes[1].answers | keyvalue: keepOriginalOrder"
           (click)="select(answer)"
-          >{{ answer.text }} <input type="radio" name="radio" />
+          >{{ answer.key }} <input type="radio" name="radio" />
           <span class="checkmark"></span>
         </label>
       </div>
@@ -75,7 +75,7 @@
       >
         Previous
       </button>
-      <div class="hint" *ngIf="seeHint">{{ quiz.hint }}</div>
+      <div class="hint" *ngIf="seeHint">{{ quizzes[1].hint }}</div>
       <button
         class="btn btn-success submit-btn"
         type="button"
@@ -88,23 +88,23 @@
   </div>
   <div class="card3" *ngIf="showCard > 2">
     <div class="hint-up">
-        <button
-          *ngIf="!seeHint"
-          class="btn btn-warning hint-btn"
-          type="button"
-          (click)="showHint()"
-        >
-          Hint
-        </button>
-      </div>
+      <button
+        *ngIf="!seeHint"
+        class="btn text-warning hint-btn"
+        type="button"
+        (click)="showHint()"
+      >
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+    </div>
     <div class="card-body">
-      <h2 class="card-title">{{ quiz.text }}</h2>
+      <h2 class="card-title">{{ quizzes[2].text }}</h2>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <label
           class="options"
-          *ngFor="let answer of answers"
+          *ngFor="let answer of quizzes[2].answers | keyvalue: keepOriginalOrder"
           (click)="select(answer)"
-          >{{ answer.text }} <input type="radio" name="radio" />
+          >{{ answer.key }} <input type="radio" name="radio" />
           <span class="checkmark"></span>
         </label>
       </div>
@@ -117,7 +117,7 @@
       >
         Previous
       </button>
-      <div class="hint" *ngIf="seeHint">{{ quiz.hint }}</div>
+      <div class="hint" *ngIf="seeHint">{{ quizzes[2].hint }}</div>
       <button
         class="btn btn-success submit-btn"
         type="button"
@@ -130,23 +130,23 @@
   </div>
   <div class="card4" *ngIf="showCard > 3">
     <div class="hint-up">
-        <button
-          *ngIf="!seeHint"
-          class="btn btn-warning hint-btn"
-          type="button"
-          (click)="showHint()"
-        >
-          Hint
-        </button>
-      </div>
+      <button
+        *ngIf="!seeHint"
+        class="btn text-warning hint-btn"
+        type="button"
+        (click)="showHint()"
+      >
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+    </div>
     <div class="card-body">
-      <h2 class="card-title">{{ quiz.text }}</h2>
+      <h2 class="card-title">{{ quizzes[3].text }}</h2>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <label
           class="options"
-          *ngFor="let answer of answers"
+          *ngFor="let answer of quizzes[3].answers | keyvalue: keepOriginalOrder"
           (click)="select(answer)"
-          >{{ answer.text }} <input type="radio" name="radio" />
+          >{{ answer.key }} <input type="radio" name="radio" />
           <span class="checkmark"></span>
         </label>
       </div>
@@ -157,8 +157,9 @@
         type="button"
         (click)="previousQuestion()"
       >
-        Previous</button>
-      <div class="hint" *ngIf="seeHint">{{ quiz.hint }}</div>
+        Previous
+      </button>
+      <div class="hint" *ngIf="seeHint">{{ quizzes[3].hint }}</div>
       <button
         class="btn btn-success submit-btn"
         type="button"
@@ -171,23 +172,23 @@
   </div>
   <div class="card5" *ngIf="showCard > 4">
     <div class="hint-up">
-        <button
-          *ngIf="!seeHint"
-          class="btn btn-warning hint-btn"
-          type="button"
-          (click)="showHint()"
-        >
-          Hint
-        </button>
-      </div>
+      <button
+        *ngIf="!seeHint"
+        class="btn text-warning hint-btn"
+        type="button"
+        (click)="showHint()"
+      >
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+    </div>
     <div class="card-body">
-      <h2 class="card-title">{{ quiz.text }}</h2>
+      <h2 class="card-title">{{ quizzes[4].text }}</h2>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <label
           class="options"
-          *ngFor="let answer of answers"
+          *ngFor="let answer of quizzes[4].answers | keyvalue: keepOriginalOrder"
           (click)="select(answer)"
-          >{{ answer.text }} <input type="radio" name="radio" />
+          >{{ answer.key }} <input type="radio" name="radio" />
           <span class="checkmark"></span>
         </label>
       </div>
@@ -198,8 +199,9 @@
         type="button"
         (click)="previousQuestion()"
       >
-        Previous</button>
-      <div class="hint" *ngIf="seeHint">{{ quiz.hint }}</div>
+        Previous
+      </button>
+      <div class="hint" *ngIf="seeHint">{{ quizzes[4].hint }}</div>
       <button
         class="btn btn-success submit-btn"
         type="button"

@@ -1,0 +1,64 @@
+{
+  "quizzes": [
+    {
+      "questionId": 12345,
+      "text": "Ce se afla pe linia Oravita-Anina?",
+      "hint": "Este administrata de infrastructura nationala feroviara",
+      "points": 30,
+      "answers": {
+        "Primul muzeu al satului din Romania": false,
+        "Pestera Comarnic": false,
+        "Morile de apa de la Rudaria": false,
+        "Prima cale ferata de munte din Romania": true
+      }
+    },
+    {
+      "questionId": 12,
+      "text": "Care este cea mai veche statiune turistica din tara?",
+      "hint": "Numele statiunii vine de la fiul Zeus si al Alcmenei",
+      "points": 30,
+      "answers": {
+        "Baile Felix": false,
+        "Baile Herculane": true,
+        "Parcul National „Domogled - Valea Cernei”": false,
+        "Cheile Nerei": false
+      }
+    },
+    {
+      "questionId": 123,
+      "text": "Ce lucru este adevarat depre Cascada Bigar?",
+      "hint": "Este numele unei edituri, dar si a multor companii de turism",
+      "points": 30,
+      "answers": {
+        "Paralela de 45 grade trece pe langa cascada": true,
+        "Are o inaltime de peste 70 metri": false,
+        "Apa izvorului este bogata in magneziu": false,
+        "Se afla la baza celui mai inalt munte din Banat": false
+      }
+    },
+    {
+      "questionId": 1234,
+      "text": "Din ce oras a pornit revolutia care a pus capat comunismului?",
+      "hint": "Este municipiul de resedinta al judetului Timis",
+      "points": 30,
+      "answers": {
+        "Bucuresti": false,
+        "Timisoara": true,
+        "Arad": false,
+        "Brasov": false
+      }
+    },
+    {
+      "questionId": 12345,
+      "text": "Teatrul din Oravita este:",
+      "hint": "Nu te-ai fi asteptat sa fie atat de batran",
+      "points": 30,
+      "answers": {
+        "O copie fidela a unui teatru spaniol": false,
+        "Construit doar din lemn": false,
+        "Cel mai vechi din Romania": true,
+        "Construit intr-o stanca": false
+      }
+    }
+  ]
+}

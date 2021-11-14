@@ -1,32 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-
+import Data from '../../../../assets/quizzes.json';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
 })
 export class QuizComponent implements OnInit {
-  quiz = 
-    {
-      text: 'Ce se afla pe linia Oravita-Anina?',
-      hint: 'Este administrata de infrastructura nationala feroviara',
-      points: 30,
-    };
-
-  answers = [
-    { text: 'Primul muzeu al satului din Romania', isCorect: false },
-    { text: 'Pestera Comarnic', isCorect: false },
-    { text: 'Morile de apa de la Rudaria', isCorect: false },
-    { text: 'Prima cale ferata de munte din Romania', isCorect: true }
-  ];
+  quizzes = Data.quizzes;
 
   selectedAnswer = false;
   seeHint = false;
   showCard = 1;
-
+  objectKeys = Object.keys;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   nextQuestion() {
     this.showCard += 1;
@@ -47,4 +36,6 @@ export class QuizComponent implements OnInit {
   showHint() {
     this.seeHint = true;
   }
+
+  public keepOriginalOrder = (a:any, b:any) => a.key;
 }
