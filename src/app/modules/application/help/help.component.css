@@ -28,15 +28,16 @@
   background-color: white;
 }
 
-.collapsed{
+.accordion-header {
   color:black;
-  background-color: var(--khaki);
+  background-color: var(--isabeline);
 }
 
-.accordion-button {
+.accordion-button{
   font-size: 1.30rem;
   font-weight: bold;
-  border:none;
+  color:black;
+  background-color: var(--linen);
 }
 
 .accordion-body{
