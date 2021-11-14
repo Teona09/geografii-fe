@@ -2,26 +2,6 @@
 
 @import "~bootstrap/dist/css/bootstrap-grid.min.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "./app/basics/colors/colors.css";
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@400&display=swap');
 
-:root {
-  --maximum: #628547;
-  --dark-see: #98cb90;
-  --laurel: #b5cda3;
-  --tea-green: #c9e4c5;
-  
-  --coyote: #795735;
-  --khaki: #c1ac95;
-  --linen: #faebe0;
-  --isabeline: #f9f5f1;
-  
-/* dark-see palette */
-  --ds50: #f3f9f2;
-  --ds100: #e0efde;
-  --ds200: #cce5c8;
-  --ds300: #b7dbb1;
-  --ds400: #a7d3a1;
-  --ds600: #90c688;
-  --ds700: #85be7d;
-  --ds800: #7bb873;
-  --ds900: #6aac61;
-}
