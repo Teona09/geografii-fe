@@ -13,4 +13,11 @@
 
 .navbar {
   background-color: rgb(0, 0, 0, 0.85);
+  height: 3.5rem;
+  display:flex;
+  flex-wrap:nowrap;
+}
+
+.navbar-right{
+  flex-direction:row;
 }
