@@ -17,6 +17,14 @@
   border-radius: 1.5rem;
   position: absolute;
   box-shadow: 3px 3px 3px 3px rgb(0, 0, 0, 0.5);
+  transform: translate(10rem, 10rem);
+  animation: come-in 0.8s ease forwards;
+}
+
+@keyframes come-in {
+  to {
+    transform: translate(0, 0);
+  }
 }
 
 .card1 {
