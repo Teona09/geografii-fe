@@ -8,4 +8,15 @@
     --khaki: #c1ac95;
     --linen: #faebe0;
     --isabeline: #f9f5f1;
+
+    /* dark-see palette */
+    --ds50: #f3f9f2;
+    --ds100: #e0efde;
+    --ds200: #cce5c8;
+    --ds300: #b7dbb1;
+    --ds400: #a7d3a1;
+    --ds600: #90c688;
+    --ds700: #85be7d;
+    --ds800: #7bb873;
+    --ds900: #6aac61;
   }

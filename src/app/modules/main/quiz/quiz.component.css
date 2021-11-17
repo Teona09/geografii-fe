@@ -1,0 +1,170 @@
+.my-content {
+  min-height: calc(100vh - 58px);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card1,
+.card2,
+.card3,
+.card4,
+.card5 {
+  width: 40rem;
+  height: 30rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 1.5rem;
+  position: absolute;
+  box-shadow: 3px 3px 3px 3px rgb(0, 0, 0, 0.5);
+  transform: translate(10rem, 10rem);
+  animation: come-in 0.8s ease forwards;
+}
+
+@keyframes come-in {
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+.card1 {
+  z-index: 0;
+  background-color: var(--ds600);
+  margin-left: -3rem;
+  margin-top: -3rem;
+}
+
+.card2 {
+  z-index: 1;
+  background-color: var(--dark-see);
+  margin-left: -1.5rem;
+  margin-top: -1.5rem;
+}
+
+.card3 {
+  z-index: 2;
+  background-color: var(--ds400);
+}
+
+.card4 {
+  z-index: 3;
+  background-color: var(--ds300);
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card5 {
+  z-index: 4;
+  background-color: var(--ds200);
+  margin-left: 3rem;
+  margin-top: 3rem;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.submit-btn {
+  height: 3rem;
+  width: 7rem;
+  font-size: 1.3rem;
+  border-radius: 0.7rem;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+
+.options {
+  position: relative;
+  padding: 0.5rem;
+  padding-left: 2rem;
+}
+
+#options label {
+  display: block;
+  font-size: 1.2rem;
+  /* cursor: pointer; */
+}
+
+.options input {
+  opacity: 0;
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  height: 22px;
+  width: 22px;
+  background-color: #999;
+  border: 0.5px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.options input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.options .checkmark:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark {
+  background: red;
+  transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark:after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#options {
+  margin-top: 10%;
+  padding: 1rem;
+}
+
+.card-footer {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  padding: 1.5rem;
+}
+
+#card1-footer {
+  justify-content: flex-end;
+}
+
+.hint {
+  width: 15rem;
+  text-align: center;
+}
+
+.hint-btn {
+  height: 1.3rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  padding: 0rem;
+  font-weight: bold;
+}
+
+.hint-up {
+  right: 0;
+  top: 0;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  position: absolute;
+  margin-left: 1rem;
+}
