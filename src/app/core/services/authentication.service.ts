@@ -8,13 +8,17 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private token!: string;
-  private email!: string;
+  private token: string;
+  private email: string;
 
   constructor(private http: HttpClient) {}
 
   getToken(): string {
-    return this.token;
+    return localStorage.getItem('token')
+  }
+
+  getEmail(): string {
+    return localStorage.getItem('email');
   }
 
   login(userName: string, password: string): void {
@@ -26,8 +30,8 @@ export class AuthenticationService {
       })
       .subscribe(
         (result) => {
-          this.email = result['email'];
-          this.token = result['token'];
+          localStorage.setItem("token", result['token']);
+          localStorage.setItem("email", result['email']);
         },
         (err) => {
           console.log(err);

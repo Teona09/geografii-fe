@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppLayoutComponent } from './modules/application/app-layout/app-layout.component';
 import { HelpComponent } from './modules/application/help/help.component';
-import { HomepageComponent } from './modules/main/homepage/homepage.component';
 import { MyAccountComponent } from './modules/application/my-account/my-account.component';
 import { WelcomePageComponent } from './modules/application/welcome-page/welcome-page.component';
+import { AuthenticationGuardService } from './core/services/authentication-guard.service';
 
 const routes: Routes = [
   {
@@ -18,15 +18,18 @@ const routes: Routes = [
       {
         path: 'help',
         component: HelpComponent,
+        canActivate: [AuthenticationGuardService],
       },
       {
         path: 'my-account',
         component: MyAccountComponent,
+        canActivate: [AuthenticationGuardService],
       },
       {
         path: 'main',
         loadChildren: () =>
           import('./modules/main/main.module').then((m) => m.MainModule),
+        canActivate: [AuthenticationGuardService],
       },
     ],
   },
