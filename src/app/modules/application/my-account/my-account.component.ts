@@ -14,12 +14,16 @@ export class MyAccountComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.form  =this.fb.group({
+    this.form = this.fb.group({
       userId: [0],
-      firstName: ["ana", Validators.required],
-      lastName: ["popescu", Validators.required],
+      firstName: ["Ana", Validators.required],
+      lastName: ["Popescu", Validators.required],
       email: ["ana.popescu@ubb.ro", Validators.required]
     })
+  }
+
+  save(){
+    this.form.reset(this.form.value);
   }
 
 }
