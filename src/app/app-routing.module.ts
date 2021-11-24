@@ -4,7 +4,7 @@ import { AppLayoutComponent } from './modules/application/app-layout/app-layout.
 import { HelpComponent } from './modules/application/help/help.component';
 import { MyAccountComponent } from './modules/application/my-account/my-account.component';
 import { WelcomePageComponent } from './modules/application/welcome-page/welcome-page.component';
-import { AuthenticationGuardService } from './core/services/authentication-guard.service';
+import { AuthenticationGuardService } from './core/auth/authentication-guard.service';
 
 const routes: Routes = [
   {

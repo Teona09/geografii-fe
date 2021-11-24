@@ -7,6 +7,7 @@ import { WelcomePageComponent } from './modules/application/welcome-page/welcome
 import { ApplicationModule } from './modules/application/application.module';
 import { LoginModule } from './modules/login/login.module';
 import { MainModule } from './modules/main/main.module';
+import { authInterceptorProviders } from './core/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { MainModule } from './modules/main/main.module';
     LoginModule,
     MainModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
