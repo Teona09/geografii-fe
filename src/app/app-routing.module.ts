@@ -26,16 +26,14 @@ const routes: Routes = [
       {
         path: 'main',
         loadChildren: () =>
-          import('./modules/main/main.module').then(
-            (m) => m.MainModule
-          ),
-      },
-      {
-        path: 'login',
-        loadChildren: () =>
-          import('./modules/login/login.module').then((m) => m.LoginModule),
+          import('./modules/main/main.module').then((m) => m.MainModule),
       },
     ],
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/login/login.module').then((m) => m.LoginModule),
   },
   { path: '**', redirectTo: '' },
 ];
