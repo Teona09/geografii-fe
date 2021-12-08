@@ -40,7 +40,7 @@
                 <a href="login/forgot-password">Forgot Password?</a>
               </div>
               <div>
-                <button class="btn btn-primary rounded submit" (click)="login()" type="submit">
+                <button class="btn btn-primary rounded submit" (click)="login()" type="submit" [disabled]="loginForm.invalid">
                   Login
                 </button>
               </div>

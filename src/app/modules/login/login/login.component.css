@@ -131,7 +131,7 @@
   padding: 1rem;
 }
 .btn.btn-primary {
-  background: rgb(123, 184, 115, 0.8);
+  background: rgb(123, 184, 115);
   border: none;
   color: #fff !important;
 }
@@ -188,4 +188,8 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.btn.btn-primary:hover {
+  transform: scale(1.05);
 }
