@@ -19,20 +19,23 @@
     </div>
     <div class="row-content margined-top" style="justify-content: space-evenly;">
 
+        <div class="max-score"></div>
+
+
         <div class="pop-up-custom-button">
+            <img class="pop-up-button-icon" style="width: 5rem" src="../../../../assets/info-icon.png" alt="">
+            <div class="button-text row-content">
+                Info
+            </div>
+        </div>
+
+
+        <div class="pop-up-custom-button" (click)="changeRoute('quiz')">
             <img class="pop-up-button-icon" style="width: 6rem;" src="../../../../assets/qmark.png" alt="">
             <div class="button-text row-content">
-                QUIZZ
+                QUIZ
             </div>
         </div>
-
-        <div class="pop-up-custom-button">
-            <img class="pop-up-button-icon" src="../../../../assets/dices.png" alt="">
-            <div class="button-text row-content">
-                GAMES
-            </div>
-        </div>
-
 
 
     </div>

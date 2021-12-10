@@ -1,0 +1,47 @@
+.wrapper {
+  background-image: url(../../../../assets/bg-map-01.png);
+  min-height: calc(100vh - 3.5rem);
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  background-color: var(--khaki);
+  display: flex;
+  flex-direction: column;
+}
+
+#accordionExample {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+.accordion-item {
+  margin: 1.5rem;
+  border-radius: 0.31rem;
+  font-family: 'Saira', sans-serif;
+}
+
+.accordion-header{
+  color:black;
+  background-color: white;
+}
+
+.accordion-header {
+  color:black;
+  background-color: var(--isabeline);
+}
+
+.accordion-button{
+  font-size: 1.30rem;
+  font-weight: bold;
+  color:black;
+  background-color: var(--linen);
+}
+
+.accordion-body{
+  background-color: white;
+  color:black;
+  font-size: 1.2rem;
+}

@@ -20,6 +20,11 @@ export class HomepageComponent implements OnInit {
     this.selectedPrincipat = principat.toUpperCase();
   }
 
+
+  changeRoute(url: string){
+    this.router.navigate(['main/'+url]);
+  }
+
   ngOnDestroy(){
     window.document.body.style.backgroundColor = "#ffffff"
   }
