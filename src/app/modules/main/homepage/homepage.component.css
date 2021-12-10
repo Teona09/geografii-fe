@@ -88,13 +88,16 @@
     box-shadow: 3px 3px 3px 3px rgb(80, 33, 4, 0.8);
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
 }
 
 .pop-up-custom-button:hover {
     box-shadow: 4px 6px 5.3px 6px rgb(80, 33, 4, 0.8);
+    opacity: 1;
 }
 
-.centered {
+.margined-top {
     margin-top: 4rem;
 }
 
@@ -104,4 +107,11 @@
     color: black;
     font-size: 1.2rem;
     font-weight: 700;
+}
+
+.pop-up-button-icon {
+    position: relative;
+    margin-top: 1.5rem;
+    width: 9rem;
+    height: 9rem;
 }
