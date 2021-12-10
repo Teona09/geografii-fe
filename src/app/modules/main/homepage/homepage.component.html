@@ -1,5 +1,40 @@
-<div class="wrapper">
+<div class="wrapper" [ngClass]="{'low-opacity' : selectedPrincipat != ''}">
     <div class="map-wrapper">
-        <app-home-page-map></app-home-page-map>
+        <div class="dust-top"></div>
+        <app-home-page-map (eventEmitter)="selectPrincipat($event)"></app-home-page-map>
     </div>
+    <div class="dust3"></div>
+</div>
+<div class="dust"></div>
+
+<div class="pop-up-container" *ngIf="selectedPrincipat != '' ">
+
+    <div class="close-button" (click)="selectPrincipat('')">
+        <span aria-hidden="true">&times;</span>
+    </div>
+
+    <div class="row-content">
+        <div class="title">
+            {{selectedPrincipat}}
+        </div>
+    </div>
+    <div class="row-content centered" style="justify-content: space-evenly;">
+
+        <div class="pop-up-custom-button">
+            <div class="button-text row-content">
+                QUIZZ
+            </div>
+        </div>
+
+        <div class="pop-up-custom-button">
+            <div class="button-text row-content">
+                GAMES
+            </div>
+        </div>
+
+
+
+    </div>
+
+
 </div>

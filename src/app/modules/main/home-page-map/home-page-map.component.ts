@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-home-page-map',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageMapComponent implements OnInit {
 
+  @Output() eventEmitter = new EventEmitter<string>();
+
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  selectPrincipat(principat: string) {
+    this.eventEmitter.emit(principat);
   }
 
 }

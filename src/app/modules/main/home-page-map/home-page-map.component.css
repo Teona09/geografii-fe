@@ -1,3 +1,17 @@
+#map {
+    transition: 1s ease-in-out;
+}
+
+#map:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.principat {
+    fill: violet;
+}
+
 .principat:hover {
-    transform: scale(1.7);
+    cursor: pointer;
+    fill-opacity: 0.8;
 }
