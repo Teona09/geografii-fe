@@ -52,6 +52,8 @@
     <i class="bi bi-emoji-laughing-fill"></i> Ai acumulat
     {{ finalPoints }} puncte. Acestea sunt raspunsurile corecte:
   </div>
+</div>
+<div class="answers" *ngIf="submitted">
   <div class="card correct" *ngIf="points[index] > 0">
     <div class="card-body">
       <h2 class="card-title">{{ questions[index].text }}</h2>

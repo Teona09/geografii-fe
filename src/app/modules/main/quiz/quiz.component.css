@@ -140,3 +140,8 @@
 .wrong{
   background-color: rgb(216, 125, 125);
 }
+
+.answers{
+  display: flex;
+  justify-content: center;
+}
