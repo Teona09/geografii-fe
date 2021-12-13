@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +12,9 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -24,7 +28,18 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    
+    this.userService.register(this.registerForm.value).subscribe(
+      (data) => {
+        console.log(data);
+        if(data.status == 201){
+            this.router.navigate(['/login']);
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    this.registerForm.reset();
   }
 
   passwordMatchValidator(control: AbstractControl): void {
