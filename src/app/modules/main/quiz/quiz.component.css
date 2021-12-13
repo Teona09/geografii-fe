@@ -6,11 +6,7 @@
   align-items: center;
 }
 
-.card1,
-.card2,
-.card3,
-.card4,
-.card5 {
+.card {
   width: 40rem;
   height: 30rem;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -19,45 +15,13 @@
   box-shadow: 3px 3px 3px 3px rgb(0, 0, 0, 0.5);
   transform: translate(10rem, 10rem);
   animation: come-in 0.8s ease forwards;
+  -webkit-animation: come-in 0.8s ease forwards;
 }
 
 @keyframes come-in {
   to {
     transform: translate(0, 0);
   }
-}
-
-.card1 {
-  z-index: 0;
-  background-color: var(--ds600);
-  margin-left: -3rem;
-  margin-top: -3rem;
-}
-
-.card2 {
-  z-index: 1;
-  background-color: var(--dark-see);
-  margin-left: -1.5rem;
-  margin-top: -1.5rem;
-}
-
-.card3 {
-  z-index: 2;
-  background-color: var(--ds400);
-}
-
-.card4 {
-  z-index: 3;
-  background-color: var(--ds300);
-  margin-left: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.card5 {
-  z-index: 4;
-  background-color: var(--ds200);
-  margin-left: 3rem;
-  margin-top: 3rem;
 }
 
 .card-body {
@@ -143,7 +107,7 @@
   padding: 1.5rem;
 }
 
-#card1-footer {
+#card-footer {
   justify-content: flex-end;
 }
 
@@ -167,4 +131,12 @@
   padding-right: 1rem;
   position: absolute;
   margin-left: 1rem;
+}
+
+.correct{
+  background-color: #90c688;
+}
+
+.wrong{
+  background-color: rgb(216, 125, 125);
 }
