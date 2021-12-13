@@ -7,6 +7,8 @@ import { WelcomePageComponent } from './modules/application/welcome-page/welcome
 import { ApplicationModule } from './modules/application/application.module';
 import { LoginModule } from './modules/login/login.module';
 import { MainModule } from './modules/main/main.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { authInterceptorProviders } from './core/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,10 @@ import { MainModule } from './modules/main/main.module';
     AppRoutingModule,
     ApplicationModule,
     LoginModule,
-    MainModule
+    MainModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
