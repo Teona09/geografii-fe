@@ -18,18 +18,18 @@ const routes: Routes = [
       {
         path: 'help',
         component: HelpComponent,
-        canActivate: [AuthenticationGuardService],
+        //canActivate: [AuthenticationGuardService],
       },
       {
         path: 'my-account',
         component: MyAccountComponent,
-        canActivate: [AuthenticationGuardService],
+        //canActivate: [AuthenticationGuardService],
       },
       {
         path: 'main',
         loadChildren: () =>
           import('./modules/main/main.module').then((m) => m.MainModule),
-        canActivate: [AuthenticationGuardService],
+        //canActivate: [AuthenticationGuardService],
       },
     ],
   },
