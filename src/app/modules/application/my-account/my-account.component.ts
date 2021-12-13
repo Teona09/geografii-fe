@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TokenStorageService } from 'src/app/core/auth/token-storage.service';
 import { User } from 'src/app/core/models/user.model';
 import { UserService } from 'src/app/core/services/user.service';
@@ -23,12 +24,14 @@ export class MyAccountComponent implements OnInit {
     levelModels: [],
   };
   form = {} as FormGroup;
+  resetPassForm = {} as FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private tokenStorage: TokenStorageService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -61,4 +64,16 @@ export class MyAccountComponent implements OnInit {
       this.router.navigate(['/login']);
     });
   }
+
+  submit(){
+
+  }
+
+  open(content: any) {
+
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+
+  }
+
+
 }
