@@ -6,7 +6,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="login-wrap py-5">
           <h3 class="text-center mb-0">Sign in</h3>
-          <form class="login-form" action="#">
+          <form [formGroup]="loginForm" class="login-form" action="#">
             <div class="form-group">
               <div
                 class="icon d-flex align-items-center justify-content-center"
@@ -16,8 +16,9 @@
               <input
                 class="form-control"
                 type="text"
-                placeholder="Username"
+                placeholder="Email"
                 required=""
+                formControlName="email"
               />
             </div>
             <div class="form-group">
@@ -31,19 +32,20 @@
                 type="password"
                 placeholder="Password"
                 required=""
+                formControlName="password"
               />
             </div>
             <div class="buttons">
               <div class="txt">
-                <a href="#">Forgot Password?</a>
+                <a href="login/forgot-password">Forgot Password?</a>
               </div>
               <div>
-                <button class="btn btn-primary rounded submit" type="submit">
+                <button class="btn btn-primary rounded submit" (click)="login()" type="submit" [disabled]="loginForm.invalid">
                   Login
                 </button>
               </div>
               <div class="txt">
-                <a href="#"
+                <a href="login/register"
                   >Create your Account
                   <i
                     class="fa fa-long-arrow-right m-l-5"
