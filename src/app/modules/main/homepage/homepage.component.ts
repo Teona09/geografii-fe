@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  selectedPrincipat = "";
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    window.document.body.style.backgroundColor = '#000000'
   }
+
+  selectPrincipat(principat: string) {
+    this.selectedPrincipat = principat.toUpperCase();
+  }
+
+
+  changeRoute(url: string){
+    this.router.navigate(['main/'+url]);
+  }
+
+  ngOnDestroy(){
+    window.document.body.style.backgroundColor = "#ffffff"
+  }
+
 
 }

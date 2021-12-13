@@ -7,6 +7,7 @@ import { WelcomePageComponent } from './modules/application/welcome-page/welcome
 import { ApplicationModule } from './modules/application/application.module';
 import { LoginModule } from './modules/login/login.module';
 import { MainModule } from './modules/main/main.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { authInterceptorProviders } from './core/auth/auth.interceptor';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { authInterceptorProviders } from './core/auth/auth.interceptor';
     AppRoutingModule,
     ApplicationModule,
     LoginModule,
-    MainModule
+    MainModule,
+    NgbModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
