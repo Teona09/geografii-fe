@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TokenStorageService } from 'src/app/core/auth/token-storage.service';
 import { User } from 'src/app/core/models/user.model';
 import { UserService } from 'src/app/core/services/user.service';
+import { switchMap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-my-account',
@@ -28,7 +30,8 @@ export class MyAccountComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private tokenStorage: TokenStorageService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal 
   ) {}
 
   ngOnInit(): void {
@@ -56,9 +59,24 @@ export class MyAccountComponent implements OnInit {
     });
   }
 
+  // delete() {
+  //   this.userService.delete(this.user.userId).subscribe((data) => {
+  //     this.router.navigate(['/login']);
+  //   });
+  // }
   delete() {
-    this.userService.delete(this.user.userId).subscribe((data) => {
-      this.router.navigate(['/login']);
-    });
+    this.userService
+      .delete(this.user.userId)
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.modalService.dismissAll();
+        this.router.navigate(['/login']);
+      });
   }
+
+  openDeletePopUp(content:any){
+    this.modalService.open(content, {ariaLabelledBy: "confirmModalLabel"});
+  }
+
+   
 }
