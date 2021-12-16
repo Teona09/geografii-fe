@@ -56,11 +56,43 @@
           >
             Save Changes
           </button>
-          <button class="btn btn-primary delete-button" type="button" (click)="delete()">
-            Delete Account
+          <button class="btn btn-primary delete-button"
+           type="button"
+           (click)="openDeletePopUp(modal_content)"
+           >
+            Delete Account  
           </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #modal_content let-modal>
+  <div class="modal-header-popup">
+    <h5 class="modal-title-popup" id="confirmModalLabel">
+      Delete Account
+    </h5>
+  </div>
+  <div class="modal-body-popup">
+    <h5 class="modal-text-popup">
+      Are you sure you want to delete your account?
+    </h5>
+  </div>
+  <div class="modal-footer-popup">
+    <button 
+      type="button"
+      class="btn btn-secondary btn-lg mr-2 rounded-lg"
+      (click)="modal.dismiss()"
+      > 
+      Cancel
+    </button>
+    <button 
+      type="button"
+      class="btn btn-danger btn-lg rounded-lg"
+      (click)="delete()"
+      >
+      Delete
+    </button>
+  </div>
+</ng-template>
