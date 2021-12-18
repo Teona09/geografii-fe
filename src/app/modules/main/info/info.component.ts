@@ -18,16 +18,10 @@ export class InfoComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    open(id: any) {
-        console.log("open 1");
-        this.modalService.open(this.infoList[id], {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-          this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        });
-        console.log("open 2");
+    open(content: any) {
+        this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
       }
-    
+
       private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
           return 'by pressing ESC';
