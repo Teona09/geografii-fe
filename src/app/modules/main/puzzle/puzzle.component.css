@@ -1,0 +1,24 @@
+.SliderBoard {
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .hide-tile {
+    opacity: 0;
+  }
+  .play {
+    width: auto !important;
+  }
+  .imaeg {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    text-align: start;
+  }
+  
+  img {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+  
