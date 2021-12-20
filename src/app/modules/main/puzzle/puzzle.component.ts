@@ -3,26 +3,47 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-puzzle',
   templateUrl: './puzzle.component.html',
-  styleUrls: ['./puzzle.component.css']
+  styleUrls: ['./puzzle.component.css'],
 })
 export class PuzzleComponent implements OnInit {
-
   matrix: string[][] = [
-    ["../../../../assets/angular/image_part_001.jpg", "../../../../assets/angular/image_part_002.jpg", "../../../../assets/angular/image_part_003.jpg"],
-    ["../../../../assets/angular/image_part_004.jpg", "../../../../assets/angular/image_part_005.jpg", "../../../../assets/angular/image_part_006.jpg"],
-    ["../../../../assets/angular/image_part_007.jpg", "../../../../assets/angular/image_part_008.jpg", ""],
+    [
+      '../../../../assets/angular/image_part_001.jpg',
+      '../../../../assets/angular/image_part_002.jpg',
+      '../../../../assets/angular/image_part_003.jpg',
+    ],
+    [
+      '../../../../assets/angular/image_part_004.jpg',
+      '../../../../assets/angular/image_part_005.jpg',
+      '../../../../assets/angular/image_part_006.jpg',
+    ],
+    [
+      '../../../../assets/angular/image_part_007.jpg',
+      '../../../../assets/angular/image_part_008.jpg',
+      '',
+    ],
   ];
   winmatrix: string[][] = [
-    ["../../../../assets/angular/image_part_001.jpg", "../../../../assets/angular/image_part_002.jpg", "../../../../assets/angular/image_part_003.jpg"],
-    ["../../../../assets/angular/image_part_004.jpg", "../../../../assets/angular/image_part_005.jpg", "../../../../assets/angular/image_part_006.jpg"],
-    ["../../../../assets/angular/image_part_007.jpg", "../../../../assets/angular/image_part_008.jpg", ""],
+    [
+      '../../../../assets/angular/image_part_001.jpg',
+      '../../../../assets/angular/image_part_002.jpg',
+      '../../../../assets/angular/image_part_003.jpg',
+    ],
+    [
+      '../../../../assets/angular/image_part_004.jpg',
+      '../../../../assets/angular/image_part_005.jpg',
+      '../../../../assets/angular/image_part_006.jpg',
+    ],
+    [
+      '../../../../assets/angular/image_part_007.jpg',
+      '../../../../assets/angular/image_part_008.jpg',
+      '',
+    ],
   ];
 
   start: boolean = false;
-  constructor() {
-  }
-  ngOnInit(): void {
-  }
+  constructor() {}
+  ngOnInit(): void {}
 
   checkForCompletion() {
     let didNotWin;
@@ -34,7 +55,7 @@ export class PuzzleComponent implements OnInit {
         }
       }
     }
-    if(!didNotWin && this.start) {
+    if (!didNotWin && this.start) {
       console.log('You Won');
       this.start = false;
     }
@@ -48,21 +69,21 @@ export class PuzzleComponent implements OnInit {
 
   // check the four sides of the tile to which it can be swapped
   swapTile(i: number, j: number) {
-    if (i + 1 < this.matrix.length && this.matrix[i + 1][j] == "") {
+    if (i + 1 < this.matrix.length && this.matrix[i + 1][j] == '') {
       this.matrix[i + 1][j] = this.matrix[i][j];
-      this.matrix[i][j] = "";
-    } else if (j + 1 < this.matrix[0].length && this.matrix[i][j + 1] == "") {
+      this.matrix[i][j] = '';
+    } else if (j + 1 < this.matrix[0].length && this.matrix[i][j + 1] == '') {
       this.matrix[i][j + 1] = this.matrix[i][j];
-      this.matrix[i][j] = "";
-    } else if (i - 1 >= 0 && this.matrix[i - 1][j] == "") {
+      this.matrix[i][j] = '';
+    } else if (i - 1 >= 0 && this.matrix[i - 1][j] == '') {
       this.matrix[i - 1][j] = this.matrix[i][j];
-      this.matrix[i][j] = "";
-    } else if (j - 1 >= 0 && this.matrix[i][j - 1] == "") {
+      this.matrix[i][j] = '';
+    } else if (j - 1 >= 0 && this.matrix[i][j - 1] == '') {
       this.matrix[i][j - 1] = this.matrix[i][j];
-      this.matrix[i][j] = "";
+      this.matrix[i][j] = '';
     }
   }
-  
+
   shuffleMatrix() {
     this.start = true;
     let k, j, tempk, tempj;

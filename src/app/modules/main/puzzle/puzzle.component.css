@@ -1,24 +1,43 @@
 .SliderBoard {
-    text-align: center;
-    display: inline-block;
-  }
-  
-  .hide-tile {
-    opacity: 0;
-  }
-  .play {
-    width: auto !important;
-  }
-  .imaeg {
-    height: 100px;
-    width: 100px;
-    position: relative;
-    text-align: start;
-  }
-  
-  img {
-    position: absolute;
-    height: 100px;
-    width: 100px;
-  }
-  
+  text-align: center;
+}
+
+.hide-tile {
+  opacity: 0;
+}
+.play {
+  width: auto !important;
+}
+.imaeg {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  text-align: start;
+}
+
+img {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+}
+
+.container-fluid {
+  height: calc(100vh - 60px);
+
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+.row {
+  height: 100%;
+}
+.SliderBoardBorder {
+  vertical-align: bottom;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
