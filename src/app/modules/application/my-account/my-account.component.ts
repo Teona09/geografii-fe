@@ -71,6 +71,7 @@ export class MyAccountComponent implements OnInit {
       .subscribe((data) => {
         this.modalService.dismissAll();
         this.router.navigate(['/login']);
+        this.tokenStorage.signOut();
       });
   }
 

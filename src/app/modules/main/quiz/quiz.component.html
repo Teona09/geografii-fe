@@ -78,6 +78,14 @@
       >
         Next
       </button>
+      <button
+      *ngIf="index == questions.length - 1"
+      class="btn btn-secondary submit-btn"
+      type="button"
+      routerLink="/main"
+    >
+      Finish
+    </button>
     </div>
   </div>
   <div class="card wrong" *ngIf="points[index] == 0">
@@ -103,6 +111,14 @@
         (click)="increaseIndex()"
       >
         Next
+      </button>
+      <button
+        *ngIf="index == questions.length - 1"
+        class="btn btn-secondary submit-btn"
+        type="button"
+        routerLink="/main"
+      >
+        Finish
       </button>
     </div>
   </div>
