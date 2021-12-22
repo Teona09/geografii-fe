@@ -15,7 +15,7 @@
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <label
           class="options"
-          *ngFor="let answer of questions[index].answers"
+          *ngFor="let answer of questions[index].answerModels"
           (click)="select(answer)"
           >{{ answer.text }} <input type="radio" name="radio" />
           <span class="checkmark"></span>
@@ -58,11 +58,11 @@
     <div class="card-body">
       <h2 class="card-title">{{ questions[index].text }}</h2>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-        <label *ngFor="let answer of questions[index].answers">
-          <span *ngIf="answer.isCorrectAnswer"
+        <label *ngFor="let answer of questions[index].answerModels">
+          <span *ngIf="answer.correctAnswer"
             ><i class="bi bi-emoji-smile-fill"></i
           ></span>
-          <span *ngIf="!answer.isCorrectAnswer"
+          <span *ngIf="!answer.correctAnswer"
             ><i class="bi bi-emoji-frown"></i
           ></span>
           {{ answer.text }}
@@ -79,24 +79,24 @@
         Next
       </button>
       <button
-      *ngIf="index == questions.length - 1"
-      class="btn btn-secondary submit-btn"
-      type="button"
-      routerLink="/main"
-    >
-      Finish
-    </button>
+        *ngIf="index == questions.length - 1"
+        class="btn btn-secondary submit-btn"
+        type="button"
+        routerLink="/main"
+      >
+        Finish
+      </button>
     </div>
   </div>
   <div class="card wrong" *ngIf="points[index] == 0">
     <div class="card-body">
       <h2 class="card-title">{{ questions[index].text }}</h2>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-        <label *ngFor="let answer of questions[index].answers">
-          <span *ngIf="answer.isCorrectAnswer"
+        <label *ngFor="let answer of questions[index].answerModels">
+          <span *ngIf="answer.correctAnswer"
             ><i class="bi bi-emoji-smile-fill"></i
           ></span>
-          <span *ngIf="!answer.isCorrectAnswer"
+          <span *ngIf="!answer.correctAnswer"
             ><i class="bi bi-emoji-frown"></i
           ></span>
           {{ answer.text }}

@@ -1,8 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { TokenStorageService } from 'src/app/core/auth/token-storage.service';
+import { LocalStorageKey } from 'src/app/core/enums/local-storage-key.enum';
+import { QuestionModel } from 'src/app/core/models/question.model';
 import { User } from 'src/app/core/models/user.model';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import { UserService } from 'src/app/core/services/user.service';
-import Data from '../../../../assets/quizzes.json';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -12,55 +15,64 @@ export class QuizComponent implements OnInit {
   q1 = {
     text: 'Ce se afla pe linia Oravita-Anina?',
     hint: 'Este administrata de infrastructura nationala feroviara',
-    answers: [
-      { text: 'Primul muzeu al satului din Romania', isCorrectAnswer: false },
-      { text: 'Pestera Comarnic', isCorrectAnswer: false },
-      { text: 'Morile de apa de la Rudaria', isCorrectAnswer: false },
-      { text: 'Prima cale ferata de munte din Romania', isCorrectAnswer: true },
+    answerModels: [
+      { text: 'Primul muzeu al satului din Romania', correctAnswer: false },
+      { text: 'Pestera Comarnic', correctAnswer: false },
+      { text: 'Morile de apa de la Rudaria', correctAnswer: false },
+      { text: 'Prima cale ferata de munte din Romania', correctAnswer: true },
     ],
     points: 30,
   };
   q2 = {
     text: 'Care este cea mai veche statiune turistica din tara?',
     hint: 'Numele statiunii vine de la fiul Zeus si al Alcmenei',
-    answers: [
-      { text: 'Baile Felix', isCorrectAnswer: false },
-      { text: 'Baile Herculane', isCorrectAnswer: true },
-      { text: 'Parcul National „Domogled - Valea Cernei”', isCorrectAnswer: false },
-      { text: 'Cheile Nerei', isCorrectAnswer: false },
+    answerModels: [
+      { text: 'Baile Felix', correctAnswer: false },
+      { text: 'Baile Herculane', correctAnswer: true },
+      {
+        text: 'Parcul National „Domogled - Valea Cernei”',
+        correctAnswer: false,
+      },
+      { text: 'Cheile Nerei', correctAnswer: false },
     ],
     points: 30,
   };
   q3 = {
     text: 'Ce lucru este adevarat depre Cascada Bigar?',
     hint: 'Este numele unei edituri, dar si a multor companii de turism',
-    answers: [
-      { text: 'Paralela de 45 grade trece pe langa cascada', isCorrectAnswer: true },
-      { text: 'Are o inaltime de peste 70 metri', isCorrectAnswer: false },
-      { text: 'Apa izvorului este bogata in magneziu', isCorrectAnswer: false },
-      { text: 'Se afla la baza celui mai inalt munte din Banat', isCorrectAnswer: false },
+    answerModels: [
+      {
+        text: 'Paralela de 45 grade trece pe langa cascada',
+        correctAnswer: true,
+      },
+      { text: 'Are o inaltime de peste 70 metri', correctAnswer: false },
+      { text: 'Apa izvorului este bogata in magneziu', correctAnswer: false },
+      {
+        text: 'Se afla la baza celui mai inalt munte din Banat',
+        correctAnswer: false,
+      },
     ],
     points: 30,
   };
   q4 = {
     text: 'Din ce oras a pornit revolutia care a pus capat comunismului?',
     hint: 'Este municipiul de resedinta al judetului Timis',
-    answers: [
-      { text: 'Bucuresti', isCorrectAnswer: false },
-      { text: 'Timisoara', isCorrectAnswer: true },
-      { text: 'Arad', isCorrectAnswer: false },
-      { text: 'Brasov', isCorrectAnswer: false },
+    answerModels: [
+      { text: 'Bucuresti', correctAnswer: false },
+      { text: 'Timisoara', correctAnswer: true },
+      { text: 'Arad', correctAnswer: false },
+      { text: 'Brasov', correctAnswer: false },
     ],
     points: 30,
   };
   q5 = {
     text: 'Teatrul din Oravita este:',
     hint: 'Nu te-ai fi asteptat sa fie atat de batran',
-    answers: [
-      { text: 'O copie fidela a unui teatru spaniol', isCorrectAnswer: false },
-      { text: 'Construit doar din lemn', isCorrectAnswer: false },
-      { text: 'Cel mai vechi din Romania', isCorrectAnswer: true },
-      { text: 'Construit intr-o stanca', isCorrectAnswer: false },
+    answerModels: [
+      { text: 'O copie fidela a unui teatru spaniol', correctAnswer: false },
+      { text: 'Construit doar din lemn', correctAnswer: false },
+      { text: 'Cel mai vechi din Romania', correctAnswer: true },
+      { text: 'Construit intr-o stanca', correctAnswer: false },
     ],
     points: 30,
   };
@@ -75,7 +87,6 @@ export class QuizComponent implements OnInit {
     '#a7d3a1',
     '#90c688',
   ];
-  //questions = Data.quizzes;
   _questions = [this.q1, this.q2, this.q3, this.q4, this.q5];
 
   user: User;
@@ -83,10 +94,10 @@ export class QuizComponent implements OnInit {
     return this._questions;
   }
 
-  @Input()
   set questions(questions) {
     this._questions = questions;
   }
+
   points: Array<number> = [];
   finalPoints = 0;
   index = 0;
@@ -97,17 +108,28 @@ export class QuizComponent implements OnInit {
 
   @Output()
   finalPoints$ = new EventEmitter<number>();
-  constructor( private userService: UserService,
-    private tokenStorage: TokenStorageService) {}
+  constructor(
+    private userService: UserService,
+    private tokenStorage: TokenStorageService,
+    private localStorage: LocalStorageService
+  ) {}
 
   ngOnInit(): void {
+    this.questions = this.localStorage.getItem(
+      LocalStorageKey.questions
+    ) as QuestionModel[];
+    console.log(this.questions);
     Math.abs(2);
     this.questions.forEach((question) => {
       this.points.push(0);
     });
-    this.userService.getUser(this.tokenStorage.getUser()).subscribe((data) => {
-      this.user = data;
-    });
+    this.userService
+      .getUser(this.tokenStorage.getUser())
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.user = data;
+        console.log(data);
+      });
   }
 
   getColor() {
@@ -130,7 +152,7 @@ export class QuizComponent implements OnInit {
   }
 
   select(answer: any) {
-    if (answer.isCorrectAnswer) {
+    if (answer.correctAnswer) {
       this.points[this.index] = this.questions[this.index].points;
     } else {
       this.points[this.index] = 0;
@@ -148,7 +170,6 @@ export class QuizComponent implements OnInit {
     });
     this.index = 0;
     this.submitted = true;
-    //this.finalPoints$.emit(this.finalPoints);
     console.log(this.finalPoints);
     this.user.usablePoints += this.finalPoints;
     this.userService.update(this.user).subscribe((data) => {
@@ -159,5 +180,4 @@ export class QuizComponent implements OnInit {
   increaseIndex() {
     this.index++;
   }
-
 }
