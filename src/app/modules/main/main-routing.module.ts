@@ -6,7 +6,7 @@ import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   {
-    path: 'puzzle',
+    path: 'puzzle/:regiune',
     component: PuzzleComponent,
   },
   {

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TokenStorageService } from 'src/app/core/auth/token-storage.service';
+import { User } from 'src/app/core/models/user.model';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-puzzle',
@@ -6,44 +11,63 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./puzzle.component.css'],
 })
 export class PuzzleComponent implements OnInit {
-  matrix: string[][] = [
-    [
-      '../../../../assets/angular/image_part_001.jpg',
-      '../../../../assets/angular/image_part_002.jpg',
-      '../../../../assets/angular/image_part_003.jpg',
-    ],
-    [
-      '../../../../assets/angular/image_part_004.jpg',
-      '../../../../assets/angular/image_part_005.jpg',
-      '../../../../assets/angular/image_part_006.jpg',
-    ],
-    [
-      '../../../../assets/angular/image_part_007.jpg',
-      '../../../../assets/angular/image_part_008.jpg',
-      '',
-    ],
-  ];
-  winmatrix: string[][] = [
-    [
-      '../../../../assets/angular/image_part_001.jpg',
-      '../../../../assets/angular/image_part_002.jpg',
-      '../../../../assets/angular/image_part_003.jpg',
-    ],
-    [
-      '../../../../assets/angular/image_part_004.jpg',
-      '../../../../assets/angular/image_part_005.jpg',
-      '../../../../assets/angular/image_part_006.jpg',
-    ],
-    [
-      '../../../../assets/angular/image_part_007.jpg',
-      '../../../../assets/angular/image_part_008.jpg',
-      '',
-    ],
-  ];
+  user: User;
+  @ViewChild('winModal') editModal: TemplateRef<any>;
+  regiune: string = 'angular';
+  assets_regiune : string;
+  matrix: string[][] = [];
+  winmatrix: string[][] = [];
 
   start: boolean = false;
-  constructor() {}
-  ngOnInit(): void {}
+  constructor(
+    private modalService: NgbModal,
+    private userService: UserService,
+    private tokenStorage: TokenStorageService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    //this.regiune = this.route.snapshot.paramMap.get('regiune');
+    this.assets_regiune = '../../../../assets/' + this.regiune;
+    this.userService.getUser(this.tokenStorage.getUser()).subscribe((data) => {
+      this.user = data;
+    });
+
+    this.matrix = [
+      [
+        `${this.assets_regiune}/image_part_001.jpg`,
+        `${this.assets_regiune}/image_part_002.jpg`,
+        `${this.assets_regiune}/image_part_003.jpg`,
+      ],
+      [
+        `${this.assets_regiune}/image_part_004.jpg`,
+        `${this.assets_regiune}/image_part_005.jpg`,
+        `${this.assets_regiune}/image_part_006.jpg`,
+      ],
+      [
+        `${this.assets_regiune}/image_part_007.jpg`,
+        `${this.assets_regiune}/image_part_008.jpg`,
+        '',
+      ],
+    ];
+    this.winmatrix = [
+      [
+        `${this.assets_regiune}/image_part_001.jpg`,
+        `${this.assets_regiune}/image_part_002.jpg`,
+        `${this.assets_regiune}/image_part_003.jpg`,
+      ],
+      [
+        `${this.assets_regiune}/image_part_004.jpg`,
+        `${this.assets_regiune}/image_part_005.jpg`,
+        `${this.assets_regiune}/image_part_006.jpg`,
+      ],
+      [
+        `${this.assets_regiune}/image_part_007.jpg`,
+        `${this.assets_regiune}/image_part_008.jpg`,
+        '',
+      ],
+    ];
+  }
 
   checkForCompletion() {
     let didNotWin;
@@ -58,6 +82,8 @@ export class PuzzleComponent implements OnInit {
     if (!didNotWin && this.start) {
       console.log('You Won');
       this.start = false;
+      this.modalService.open(this.editModal);
+      this.addPoints();
     }
   }
 
@@ -97,5 +123,12 @@ export class PuzzleComponent implements OnInit {
         this.matrix[i][j] = tempk;
       }
     }
+  }
+
+  addPoints() {
+    this.user.usablePoints += 10;
+    this.userService.update(this.user).subscribe((data) => {
+      this.user = data;
+    });
   }
 }
