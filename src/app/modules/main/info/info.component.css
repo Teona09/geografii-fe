@@ -1,6 +1,7 @@
 .product-card {
     background-color: var(--isabeline);
     border: 2px solid var(--maximum);
+    border-radius: 10px;
 }
 
 .card-text {
@@ -21,7 +22,7 @@
 }
 
 .custom-btn {
-    border-radius: 0;
+    border-radius: 0 0 10px 10px;
     background-color: var(--dark-see);
     color: var(--maximum);
     font-weight: 500;
