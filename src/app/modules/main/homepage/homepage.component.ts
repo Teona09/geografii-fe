@@ -14,7 +14,13 @@ import { LocalStorageService } from 'src/app/core/services/local-storage/local-s
 export class HomepageComponent implements OnInit {
   selectedPrincipat = '';
   id = 1;
-  principat: LevelModel;
+  principat: LevelModel = {
+    id: 1,
+    maximumPoints: 0,
+    region: '',
+    questionModels: [],
+    informationModels: [],
+  } as LevelModel;
 
   constructor(
     private router: Router,
