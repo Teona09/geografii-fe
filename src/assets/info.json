@@ -1,0 +1,34 @@
+{
+  "Items": [
+    {
+      "id":1,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.",
+      "image":"https://i.imgur.com/nXN8s1l.jpeg"
+    },
+    {
+      "id":2,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.",
+      "image":"https://www.holidogtimes.com/wp-content/uploads/2017/08/golden-retriever-cover.png"
+    },
+    {
+      "id":3,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.",
+      "image":"https://www.boredpanda.com/blog/wp-content/uploads/2017/07/cute-golden-retriever-puppies-202-5967223e5ba31__605.jpg"
+    },
+    {
+      "id":4,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.",
+      "image":"https://www.yourpurebredpuppy.com/dogbreeds/photos-EFGH/goldenretrieversf1.jpg"
+    },
+    {
+      "id":5,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.",
+      "image":"https://www.boredpanda.com/blog/wp-content/uploads/2017/07/cute-golden-retriever-puppies-202-5967223e5ba31__605.jpg"
+    },
+    {
+      "id":6,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum.",
+      "image":"https://www.yourpurebredpuppy.com/dogbreeds/photos-EFGH/goldenretrieversf1.jpg"
+    }
+  ]
+}

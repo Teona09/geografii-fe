@@ -14,6 +14,7 @@ import { LocalStorageService } from 'src/app/core/services/local-storage/local-s
 export class HomepageComponent implements OnInit {
   selectedPrincipat = '';
   id = 1;
+  principat: LevelModel;
 
   constructor(
     private router: Router,
@@ -28,11 +29,18 @@ export class HomepageComponent implements OnInit {
   selectPrincipat(principat: string) {
     this.selectedPrincipat = principat.toUpperCase();
     this.levelService
-      .getLevelByRegion(/* this.selectedPrincipat */'transilvania')
+      .getLevelByRegion(this.selectedPrincipat /* 'transilvania' */)
       .pipe(take(1))
       .subscribe((result: LevelModel) => {
-        console.log(result);
-        this.localStorage.setItem(result.questionModels, LocalStorageKey.questions);
+        this.principat = result as LevelModel;
+        this.localStorage.setItem(
+          result.questionModels,
+          LocalStorageKey.questions
+        );
+        this.localStorage.setItem(
+          result.informationModels,
+          LocalStorageKey.informations
+        );
       });
   }
 

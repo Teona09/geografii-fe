@@ -1,45 +1,48 @@
-<div class="wrapper" [ngClass]="{'low-opacity' : selectedPrincipat != ''}">
-    <div class="map-wrapper">
-        <div class="dust-top"></div>
-        <app-home-page-map (eventEmitter)="selectPrincipat($event)"></app-home-page-map>
-    </div>
-    <div class="dust3"></div>
+<div class="wrapper" [ngClass]="{ 'low-opacity': selectedPrincipat != '' }">
+  <div class="map-wrapper">
+    <div class="dust-top"></div>
+    <app-home-page-map
+      (eventEmitter)="selectPrincipat($event)"
+    ></app-home-page-map>
+  </div>
+  <div class="dust3"></div>
 </div>
 <div class="dust"></div>
 
-<div class="pop-up-container" *ngIf="selectedPrincipat != '' ">
+<div class="pop-up-container" *ngIf="selectedPrincipat != ''">
+  <div class="close-button" (click)="selectPrincipat('')">
+    <i class="bi bi-x-lg"></i>
+  </div>
 
-    <div class="close-button" (click)="selectPrincipat('')">
-        <i class="bi bi-x-lg"></i> </div>
-
-    <div class="row-content">
-        <div class="title">
-            {{selectedPrincipat}}
-        </div>
+  <div class="row-content">
+    <div class="title">
+      {{ selectedPrincipat }}
     </div>
-    <div class="row-content margined-top" style="justify-content: space-evenly;">
+  </div>
+  <div class="row-content margined-top" style="justify-content: space-evenly">
+    <div class="max-score">{{ principat.maximumPoints }}</div>
+    <button class="game btn" routerLink="/main/puzzle/{{ selectedPrincipat }}">
+      <i class="bi bi-play"></i>Game
+    </button>
 
-        <div class="max-score"></div>
-        <button class="game btn" routerLink="/main/puzzle/{{selectedPrincipat}}"><i class="bi bi-play"></i>Game</button>
-
-
-        <div class="pop-up-custom-button">
-            <img class="pop-up-button-icon" style="width: 5rem" src="../../../../assets/info-icon.png" alt="">
-            <div class="button-text row-content">
-                Info
-            </div>
-        </div>
-
-
-        <div class="pop-up-custom-button" (click)="changeRoute('quiz')">
-            <img class="pop-up-button-icon" style="width: 6rem;" src="../../../../assets/qmark.png" alt="">
-            <div class="button-text row-content">
-                QUIZ
-            </div>
-        </div>
-
-
+    <div class="pop-up-custom-button" (click)="changeRoute('info')">
+      <img
+        class="pop-up-button-icon"
+        style="width: 5rem"
+        src="../../../../assets/info-icon.png"
+        alt=""
+      />
+      <div class="button-text row-content">Info</div>
     </div>
 
-
+    <div class="pop-up-custom-button" (click)="changeRoute('quiz')">
+      <img
+        class="pop-up-button-icon"
+        style="width: 6rem"
+        src="../../../../assets/qmark.png"
+        alt=""
+      />
+      <div class="button-text row-content">QUIZ</div>
+    </div>
+  </div>
 </div>
