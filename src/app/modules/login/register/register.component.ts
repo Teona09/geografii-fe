@@ -33,13 +33,14 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         if(data.status == 201){
             this.router.navigate(['/login']);
+            this.registerForm.reset();
         }
       },
       (err) => {
         console.log(err);
       }
     );
-    this.registerForm.reset();
+    
   }
 
   passwordMatchValidator(control: AbstractControl): void {
