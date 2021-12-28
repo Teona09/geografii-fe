@@ -28,11 +28,12 @@ export class HomepageComponent implements OnInit {
   selectPrincipat(principat: string) {
     this.selectedPrincipat = principat.toUpperCase();
     this.levelService
-      .getLevelByRegion(/* this.selectedPrincipat */'transilvania')
+      .getLevelByRegion(this.selectedPrincipat/* 'transilvania' */)
       .pipe(take(1))
       .subscribe((result: LevelModel) => {
         console.log(result);
         this.localStorage.setItem(result.questionModels, LocalStorageKey.questions);
+        this.localStorage.setItem(result.informationModels, LocalStorageKey.informations);
       });
   }
 
