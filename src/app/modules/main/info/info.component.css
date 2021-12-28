@@ -3,22 +3,38 @@
     border: 2px solid var(--maximum);
 }
 
+.card-text {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.image-preview {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 14rem;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .custom-btn {
     border-radius: 0;
     background-color: var(--dark-see);
     color: var(--maximum);
     font-weight: 500;
-    border: none
+    border: none;
 }
 
 .custom-btn:hover{
     background-color: var(--tea-green);
 }
 
-/* #content {
+#content {
     border-radius: 5px;
     border: 2px solid var(--coyote);
-    width: 600px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -35,18 +51,56 @@
     background-color: inherit;
 }
 
-.modal-header > button > span {
-    font-weight: 400;
-    color: red;
-    font-size: 30px;
+.modal-header .bi-x-lg {
+    font-weight: 800;
+    color: black;
+    font-size: 20px;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    height: 1.5rem;
 }
+
+.modal-header .bi-x-lg:hover {
+    color: white;
+    background-color:red;
+} 
 
 .modal-body {
     flex-grow: 2;
     overflow-y: auto;
+    padding: 1.5rem 3rem 0.5rem;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-body .image-area {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-body .image-area img {
+    max-height: 40rem;
+    max-width: 45rem;
+    border-radius: 5px;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 0;
+}
+
+.modal-footer button{
+    font-weight: 500;
+    font-size: 1.1rem;
+    background-color: var(--tea-green);
+    margin: 0 3rem 1rem 0;
 }
 
 .modal-footer button:hover {
-    background-color: var(--maximum);
-} */
-
+    background-color:red;
+}
