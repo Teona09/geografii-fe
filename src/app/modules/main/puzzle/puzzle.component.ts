@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TokenStorageService } from 'src/app/core/auth/token-storage.service';
 import { User } from 'src/app/core/models/user.model';
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -14,20 +15,21 @@ export class PuzzleComponent implements OnInit {
   user: User;
   @ViewChild('winModal') editModal: TemplateRef<any>;
   regiune: string = 'angular';
-  assets_regiune : string;
+  assets_regiune: string;
   matrix: string[][] = [];
   winmatrix: string[][] = [];
-
+ 
   start: boolean = false;
   constructor(
     private modalService: NgbModal,
     private userService: UserService,
     private tokenStorage: TokenStorageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private notifyService : NotificationService
   ) {}
 
   ngOnInit(): void {
-    //this.regiune = this.route.snapshot.paramMap.get('regiune');
+    this.regiune = this.route.snapshot.paramMap.get('regiune');
     this.assets_regiune = '../../../../assets/' + this.regiune;
     this.userService.getUser(this.tokenStorage.getUser()).subscribe((data) => {
       this.user = data;
@@ -89,8 +91,13 @@ export class PuzzleComponent implements OnInit {
 
   // move the tile to the empty space
   moveTile(i: number, j: number) {
-    this.swapTile(i, j);
-    this.checkForCompletion();
+    if (this.start) {
+      this.swapTile(i, j);
+      this.checkForCompletion();
+    }
+    else{
+      this.notifyService.showWarning("You must start playing in order to move tiles", "");
+    }
   }
 
   // check the four sides of the tile to which it can be swapped

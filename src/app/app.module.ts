@@ -9,11 +9,10 @@ import { LoginModule } from './modules/login/login.module';
 import { MainModule } from './modules/main/main.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { authInterceptorProviders } from './core/auth/auth.interceptor';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
-  declarations: [
-    AppComponent,
-   ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,9 +20,13 @@ import { authInterceptorProviders } from './core/auth/auth.interceptor';
     LoginModule,
     MainModule,
     // ModalModule,
-    NgbModule
-    ],
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-left',
+    }),
+  ],
   providers: [authInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

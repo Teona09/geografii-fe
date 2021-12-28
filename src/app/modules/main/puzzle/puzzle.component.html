@@ -62,7 +62,7 @@
             <div class="image"><img [src]="matrix[2][2]" /></div>
           </button>
         </div>
-        <button class="btn btn-success btn-lg play" (click)="shuffleMatrix()">
+        <button *ngIf="!start" class="btn btn-success btn-lg play" (click)="shuffleMatrix()">
           Start Playing
         </button>
       </div>

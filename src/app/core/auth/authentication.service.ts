@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from './token-storage.service';
 import { Router } from '@angular/router';
+import { NotificationService } from '../services/notification.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -13,7 +14,8 @@ export class AuthenticationService {
   constructor(
     private http: HttpClient,
     private tokenStorage: TokenStorageService,
-    private router: Router
+    private router: Router,
+    private notifyService: NotificationService
   ) {}
 
   login(userName: string, password: string) {
@@ -35,6 +37,7 @@ export class AuthenticationService {
         },
         (err) => {
           console.log(err);
+          this.notifyService.showError("Invalid Email or Password", "")
         }
       );
   }
