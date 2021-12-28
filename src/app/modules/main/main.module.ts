@@ -7,6 +7,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomePageMapComponent } from './home-page-map/home-page-map.component';
 import { InfoComponent } from './info/info.component';
+import { PuzzleComponent } from './puzzle/puzzle.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { InfoComponent } from './info/info.component';
     QuizComponent,
     HomepageComponent,
     HomePageMapComponent,
-    InfoComponent
+    InfoComponent,
+    PuzzleComponent
   ],
   imports: [
     CommonModule,

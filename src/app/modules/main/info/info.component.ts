@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { LocalStorageKey } from 'src/app/core/enums/local-storage-key.enum';
+import { InformationModel } from 'src/app/core/models/information.model';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import Data from '../../../../assets/info.json';
 @Component({
   selector: 'app-info',
@@ -8,15 +11,17 @@ import Data from '../../../../assets/info.json';
 })
 export class InfoComponent implements OnInit {
     public closeResult='';
-    public jsonItems = Data.Items;
-    public  infoList: { id: number; content: string; imgSrc:string; showbody: boolean; }[] = [];
-    constructor(private modalService: NgbModal) {
-    for(var _i=0;_i<this.jsonItems.length;_i++){
-      this.infoList.push({id:this.jsonItems[_i].id,content:this.jsonItems[_i].content,imgSrc:this.jsonItems[_i].imgSrc,showbody:false})
-    }
+    public listItems = Data.Items as InformationModel[];
+    public  infoList: InformationModel[];
+    constructor(private modalService: NgbModal, private localStorage: LocalStorageService) {
   }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+      // this.infoList = this.listItems;
+      this.infoList = this.localStorage.getItem(
+        LocalStorageKey.informations
+      ) as InformationModel[];
+    }
 
     open(content: any) {
         this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',size: 'xl', centered: true});

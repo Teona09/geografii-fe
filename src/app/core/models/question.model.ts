@@ -5,5 +5,5 @@ export interface QuestionModel {
   text: string;
   hint: string;
   points: number;
-  answers: AnswerModel[];
+  answerModels: AnswerModel[];
 }

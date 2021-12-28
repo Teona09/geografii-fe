@@ -20,9 +20,10 @@
     <div class="row-content margined-top" style="justify-content: space-evenly;">
 
         <div class="max-score"></div>
+        <button class="game btn" routerLink="/main/puzzle/{{selectedPrincipat}}"><i class="bi bi-play"></i>Game</button>
 
 
-        <div class="pop-up-custom-button">
+        <div class="pop-up-custom-button" (click)="changeRoute('info')">
             <img class="pop-up-button-icon" style="width: 5rem" src="../../../../assets/info-icon.png" alt="">
             <div class="button-text row-content">
                 Info

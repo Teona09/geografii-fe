@@ -6,6 +6,7 @@ import { TokenStorageService } from 'src/app/core/auth/token-storage.service';
 import { User } from 'src/app/core/models/user.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { switchMap, take } from 'rxjs/operators';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-my-account',
@@ -13,6 +14,7 @@ import { switchMap, take } from 'rxjs/operators';
   styleUrls: ['./my-account.component.css'],
 })
 export class MyAccountComponent implements OnInit {
+  beforeUser: User;
   user: User;
   defaultUser: User = {
     userId: 0,
@@ -31,7 +33,8 @@ export class MyAccountComponent implements OnInit {
     private userService: UserService,
     private tokenStorage: TokenStorageService,
     private router: Router,
-    private modalService: NgbModal 
+    private modalService: NgbModal ,
+    private notifyService : NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -52,10 +55,16 @@ export class MyAccountComponent implements OnInit {
   }
 
   save() {
+    this.beforeUser = this.user;
     this.user = { ...this.user, ...this.form.value };
     this.userService.update(this.user).subscribe((data) => {
+      if(data){
       this.user = data;
-      this.initializeForm(data);
+      this.initializeForm(data);}
+      else{
+        this.notifyService.showError("Email is used by other player", "");
+        this.initializeForm(this.beforeUser);
+      }
     });
   }
 
@@ -71,6 +80,7 @@ export class MyAccountComponent implements OnInit {
       .subscribe((data) => {
         this.modalService.dismissAll();
         this.router.navigate(['/login']);
+        this.tokenStorage.signOut();
       });
   }
 
