@@ -29,7 +29,7 @@
     border: none;
 }
 
-.custom-btn:hover{
+.custom-btn:hover {
     background-color: var(--tea-green);
 }
 
@@ -47,7 +47,7 @@
     background-color: var(--tea-green);
 }
 
-.modal-header > button {
+.modal-header>button {
     border: none;
     background-color: inherit;
 }
@@ -63,8 +63,8 @@
 
 .modal-header .bi-x-lg:hover {
     color: white;
-    background-color:red;
-} 
+    background-color: red;
+}
 
 .modal-body {
     flex-grow: 2;
@@ -95,7 +95,7 @@
     padding: 0;
 }
 
-.modal-footer button{
+.modal-footer button {
     font-weight: 500;
     font-size: 1.1rem;
     background-color: var(--tea-green);
@@ -103,5 +103,15 @@
 }
 
 .modal-footer button:hover {
-    background-color:red;
+    background-color: red;
+}
+
+.wrapper {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 1)), url(../../../../assets/mapBG.png);
+    height: 100vh;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
