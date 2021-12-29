@@ -21,5 +21,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value);
-  }
+    this.loginForm.reset();
+    }
 }

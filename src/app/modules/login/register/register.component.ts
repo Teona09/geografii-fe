@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private notifyService : NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -33,13 +35,17 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         if(data.status == 201){
             this.router.navigate(['/login']);
+            this.registerForm.reset();
+        }
+        else{
+          this.notifyService.showError("Email is already used", "")
         }
       },
       (err) => {
         console.log(err);
       }
     );
-    this.registerForm.reset();
+    
   }
 
   passwordMatchValidator(control: AbstractControl): void {
