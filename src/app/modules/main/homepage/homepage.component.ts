@@ -5,6 +5,7 @@ import { LocalStorageKey } from 'src/app/core/enums/local-storage-key.enum';
 import { LevelModel } from 'src/app/core/models/level.model';
 import { LevelService } from 'src/app/core/services/level.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-homepage',
@@ -25,7 +26,8 @@ export class HomepageComponent implements OnInit {
   constructor(
     private router: Router,
     private levelService: LevelService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -38,15 +40,19 @@ export class HomepageComponent implements OnInit {
       .getLevelByRegion(this.selectedPrincipat /* 'transilvania' */)
       .pipe(take(1))
       .subscribe((result: LevelModel) => {
-        this.principat = result as LevelModel;
-        this.localStorage.setItem(
-          result.questionModels,
-          LocalStorageKey.questions
-        );
-        this.localStorage.setItem(
-          result.informationModels,
-          LocalStorageKey.informations
-        );
+        if (result) {
+          this.principat = result as LevelModel;
+          this.localStorage.setItem(
+            result.questionModels,
+            LocalStorageKey.questions
+          );
+          this.localStorage.setItem(
+            result.informationModels,
+            LocalStorageKey.informations
+          );
+        } else {
+          this.notificationService.showError('eroare naspa', '');
+        }
       });
   }
 
