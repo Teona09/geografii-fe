@@ -6,7 +6,7 @@
                     <div class="product-card card h-90">
                         <div class="card-body">
                             <div class=image-preview>
-                                <img src="{{info.image}}">
+                                <img src="{{info.imageUrl}}">
                             </div>
                             <p class="card-text text-truncate">{{ info.text }}</p>
                         </div>
@@ -15,7 +15,7 @@
                             <ng-template #content let-modal>
                                 <div class="modal-body">
                                     <div class='image-area'>
-                                        <img src="{{info.image}}">
+                                        <img src="{{info.imageUrl}}">
                                     </div>
                                     <div>{{info.text}}</div>
                                 </div>

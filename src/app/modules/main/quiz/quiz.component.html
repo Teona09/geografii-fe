@@ -1,45 +1,65 @@
 <div class="wrapper">
-
-    <div class="my-content" *ngIf="!submitted">
-        <div class="card" [style.background-color]="getColor()">
-            <div class="hint-up">
-                <button *ngIf="!seeHint" class="btn text-warning hint-btn" type="button" (click)="showHint()">
+  <div class="my-content" *ngIf="!submitted">
+    <div class="card" [style.background-color]="getColor()">
+      <div class="hint-up">
+        <button
+          *ngIf="!seeHint"
+          class="btn text-warning hint-btn"
+          type="button"
+          (click)="showHint()"
+        >
           <i class="bi bi-lightbulb-fill"></i>
         </button>
-            </div>
-            <div class="card-body">
-                <h2 class="card-title">{{ questions[index].text }}</h2>
-                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                    <label class="options" *ngFor="let answer of questions[index].answerModels" (click)="select(answer)">{{ answer.text }} <input type="radio" name="radio" />
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">{{ questions[index].text }}</h2>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+          <label
+            class="options"
+            *ngFor="let answer of questions[index].answerModels"
+            (click)="select(answer)"
+            >{{ answer.text }} <input type="radio" name="radio" />
             <span class="checkmark"></span>
           </label>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="hint" *ngIf="seeHint">{{ questions[index].hint }}</div>
-                <button *ngIf="index < questions.length - 1; else submitBlock" class="btn btn-success submit-btn" type="button" (click)="nextQuestion()" [disabled]="selectedAnswer ? false : true">
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="hint" *ngIf="seeHint">{{ questions[index].hint }}</div>
+        <button
+          *ngIf="index < questions.length - 1; else submitBlock"
+          class="btn btn-success submit-btn"
+          type="button"
+          (click)="nextQuestion()"
+          [disabled]="selectedAnswer ? false : true"
+        >
           Next
         </button>
-                <ng-template #submitBlock>
-                    <button class="btn btn-success submit-btn" type="button" (click)="submitAnswer()" [disabled]="selectedAnswer ? false : true">
+        <ng-template #submitBlock>
+          <button
+            class="btn btn-success submit-btn"
+            type="button"
+            (click)="submitAnswer()"
+            [disabled]="selectedAnswer ? false : true"
+          >
             Submit
           </button>
-                </ng-template>
-            </div>
-        </div>
+        </ng-template>
+      </div>
     </div>
+  </div>
 
-    <div class="answers" *ngIf="submitted">
-        <div class="m-4 p-4 font-weight-bold justify-content-center">
-            <i class="bi bi-emoji-laughing-fill"></i> Ai acumulat {{ finalPoints }} puncte. Acestea sunt raspunsurile corecte:
-        </div>
+  <div class="answers" *ngIf="submitted">
+    <div class="m-4 p-4 justify-content-center text-white">
+      <i class="bi bi-emoji-laughing-fill"></i>Ai acumulat
+      {{ finalPoints }} puncte. Acestea sunt raspunsurile corecte:
     </div>
-    <div class="answers" *ngIf="submitted">
-        <div class="card correct" *ngIf="points[index] > 0">
-            <div class="card-body">
-                <h2 class="card-title">{{ questions[index].text }}</h2>
-                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                    <label *ngFor="let answer of questions[index].answerModels">
+  </div>
+  <div class="answers" *ngIf="submitted">
+    <div class="card correct" *ngIf="points[index] > 0">
+      <div class="card-body">
+        <h2 class="card-title">{{ questions[index].text }}</h2>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+          <label *ngFor="let answer of questions[index].answerModels">
             <span *ngIf="answer.correctAnswer"
               ><i class="bi bi-emoji-smile-fill"></i
             ></span>
@@ -48,22 +68,32 @@
             ></span>
             {{ answer.text }}
           </label>
-                </div>
-            </div>
-            <div class="card-footer">
-                <button *ngIf="index < questions.length - 1" class="btn btn-secondary submit-btn" type="button" (click)="increaseIndex()">
+        </div>
+      </div>
+      <div class="card-footer">
+        <button
+          *ngIf="index < questions.length - 1"
+          class="btn btn-secondary submit-btn"
+          type="button"
+          (click)="increaseIndex()"
+        >
           Next
         </button>
-                <button *ngIf="index == questions.length - 1" class="btn btn-secondary submit-btn" type="button" routerLink="/main">
+        <button
+          *ngIf="index == questions.length - 1"
+          class="btn btn-secondary submit-btn"
+          type="button"
+          routerLink="/main"
+        >
           Finish
         </button>
-            </div>
-        </div>
-        <div class="card wrong" *ngIf="points[index] == 0">
-            <div class="card-body">
-                <h2 class="card-title">{{ questions[index].text }}</h2>
-                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                    <label *ngFor="let answer of questions[index].answerModels">
+      </div>
+    </div>
+    <div class="card wrong" *ngIf="points[index] == 0">
+      <div class="card-body">
+        <h2 class="card-title">{{ questions[index].text }}</h2>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+          <label *ngFor="let answer of questions[index].answerModels">
             <span *ngIf="answer.correctAnswer"
               ><i class="bi bi-emoji-smile-fill"></i
             ></span>
@@ -72,16 +102,26 @@
             ></span>
             {{ answer.text }}
           </label>
-                </div>
-            </div>
-            <div class="card-footer">
-                <button *ngIf="index < questions.length - 1" class="btn btn-secondary submit-btn" type="button" (click)="increaseIndex()">
+        </div>
+      </div>
+      <div class="card-footer">
+        <button
+          *ngIf="index < questions.length - 1"
+          class="btn btn-secondary submit-btn"
+          type="button"
+          (click)="increaseIndex()"
+        >
           Next
         </button>
-                <button *ngIf="index == questions.length - 1" class="btn btn-secondary submit-btn" type="button" routerLink="/main">
+        <button
+          *ngIf="index == questions.length - 1"
+          class="btn btn-secondary submit-btn"
+          type="button"
+          routerLink="/main"
+        >
           Finish
         </button>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>

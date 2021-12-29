@@ -50,8 +50,9 @@ export class MyAccountComponent implements OnInit {
       .getUser(this.tokenStorage.getUser())
       .pipe(take(1))
       .subscribe((data) => {
+        if(data){
         this.user = data;
-        this.initializeForm(data);
+        this.initializeForm(data);}
       });
     this.resetPassForm = this.fb.group(
       {
@@ -95,7 +96,9 @@ export class MyAccountComponent implements OnInit {
       .delete(this.user.userId)
       .pipe(take(1))
       .subscribe((data) => {
+        this.modalService.dismissAll();
         this.router.navigate(['/login']);
+        this.tokenStorage.signOut();
       });
   }
 
@@ -126,9 +129,7 @@ export class MyAccountComponent implements OnInit {
     } else {
       control.get('repeatPassword').setErrors({ mismatch: true });
     }
-        this.modalService.dismissAll();
-        this.router.navigate(['/login']);
-        this.tokenStorage.signOut();
+        
   }
   openDeletePopUp(content:any){
     this.modalService.open(content, {ariaLabelledBy: "confirmModalLabel"});
