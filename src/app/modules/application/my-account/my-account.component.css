@@ -110,3 +110,7 @@ input:invalid {
     background-repeat: no-repeat;
     background-position: right;
 }
+
+.error-message {
+    color: red;
+}
