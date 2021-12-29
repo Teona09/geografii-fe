@@ -45,7 +45,11 @@
           </div>
         </form>
         <div class="mt-5 text-center" id="buttons">
-          <button class="btn btn-primary reset-button" type="button">
+          <button
+            class="btn btn-primary reset-button"
+            type="button"
+            (click)="open(content)"
+          >
             Reset Password
           </button>
           <button
@@ -56,11 +60,12 @@
           >
             Save Changes
           </button>
-          <button class="btn btn-primary delete-button"
-           type="button"
-           (click)="openDeletePopUp(modal_content)"
-           >
-            Delete Account  
+          <button
+            class="btn btn-primary delete-button"
+            type="button"
+            (click)="openDeletePopUp(modal_content)"
+          >
+            Delete Account
           </button>
         </div>
       </div>
@@ -68,31 +73,90 @@
   </div>
 </div>
 
-<ng-template #modal_content let-modal>
-  <div class="modal-header-popup">
-    <h5 class="modal-title-popup" id="confirmModalLabel">
-      Delete Account
-    </h5>
-  </div>
-  <div class="modal-body-popup">
-    <h5 class="modal-text-popup">
-      Are you sure you want to delete your account?
-    </h5>
-  </div>
-  <div class="modal-footer-popup">
-    <button 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Reset Password</h4>
+    <button
       type="button"
-      class="btn btn-secondary btn-lg mr-2 rounded-lg"
+      class="btn btn-primary delete-button"
+      aria-label="Close"
       (click)="modal.dismiss()"
-      > 
-      Cancel
-    </button>
-    <button 
-      type="button"
-      class="btn btn-danger btn-lg rounded-lg"
-      (click)="delete()"
-      >
-      Delete
+    >
+      <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <form [formGroup]="resetPassForm" (ngSubmit)="submit()">
+    <div class="modal-body">
+      <div class="m-4 form-group justify-content-center">
+        <div class="col-md-12">
+          <label class="labels">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            formControlName="password"
+            aria-describedby="password"
+            required
+          />
+        </div>
+
+        <div class="col-md-12">
+          <label class="labels">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="repeatPassword"
+            formControlName="repeatPassword"
+            aria-describedby="repeatPassword"
+            required
+          />
+        </div>
+
+        <div
+          class="col-md-12 error-message"
+          *ngIf="resetPassForm.dirty && resetPassForm.valid == false"
+        >
+          Fields are not valid!
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-primary reset-button"
+            (click)="modal.close('Save click')"
+            [disabled]="resetPassForm.invalid || resetPassForm.pristine"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
 </ng-template>
+
+<ng-template #modal_content let-modal>
+    <div class="modal-header-popup">
+      <h5 class="modal-title-popup" id="confirmModalLabel">Delete Account</h5>
+    </div>
+    <div class="modal-body-popup">
+      <h5 class="modal-text-popup">
+        Are you sure you want to delete your account?
+      </h5>
+    </div>
+    <div class="modal-footer-popup">
+      <button
+        type="button"
+        class="btn btn-secondary btn-lg mr-2 rounded-lg"
+        (click)="modal.dismiss()"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger btn-lg rounded-lg"
+        (click)="delete()"
+      >
+        Delete
+      </button>
+    </div>
+  </ng-template>
