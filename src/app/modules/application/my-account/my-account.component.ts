@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TokenStorageService } from 'src/app/core/auth/token-storage.service';
@@ -27,6 +33,7 @@ export class MyAccountComponent implements OnInit {
     levelModels: [],
   };
   form = {} as FormGroup;
+  resetPassForm = {} as FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -39,10 +46,20 @@ export class MyAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm(this.defaultUser);
-    this.userService.getUser(this.tokenStorage.getUser()).subscribe((data) => {
-      this.user = data;
-      this.initializeForm(data);
-    });
+    this.userService
+      .getUser(this.tokenStorage.getUser())
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.user = data;
+        this.initializeForm(data);
+      });
+    this.resetPassForm = this.fb.group(
+      {
+        password: ['', [Validators.required]],
+        repeatPassword: ['', [Validators.required]],
+      },
+      { validators: this.passwordMatchValidator }
+    );
   }
 
   initializeForm(user: User) {
@@ -78,15 +95,42 @@ export class MyAccountComponent implements OnInit {
       .delete(this.user.userId)
       .pipe(take(1))
       .subscribe((data) => {
-        this.modalService.dismissAll();
         this.router.navigate(['/login']);
-        this.tokenStorage.signOut();
       });
   }
 
+  submit() {
+    this.userService
+      .resetPassword(this.user.userId, this.resetPassForm.get('password').value)
+      .pipe(
+        take(1),
+        switchMap(() => {
+          return this.userService.getUser(this.tokenStorage.getUser());
+        })
+      )
+      .subscribe((data) => {
+        this.user = data;
+        this.initializeForm(data);
+        this.resetPassForm.reset();
+      });
+  }
+
+  open(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
+
+  passwordMatchValidator(control: AbstractControl): void {
+    if (control.get('password').value === control.get('repeatPassword').value) {
+      if (control.get('repeatPassword').hasError('mismatch'))
+        control.get('repeatPassword').setErrors(null);
+    } else {
+      control.get('repeatPassword').setErrors({ mismatch: true });
+    }
+        this.modalService.dismissAll();
+        this.router.navigate(['/login']);
+        this.tokenStorage.signOut();
+  }
   openDeletePopUp(content:any){
     this.modalService.open(content, {ariaLabelledBy: "confirmModalLabel"});
   }
-
-   
 }

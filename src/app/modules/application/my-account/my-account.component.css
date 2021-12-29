@@ -111,6 +111,10 @@ input:invalid {
     background-position: right;
 }
 
+.error-message {
+    color: red;
+}
+
 .modal-title-popup {
     font-size: 2rem;
     font-weight: 400;
@@ -125,7 +129,7 @@ input:invalid {
     cursor: pointer;
     font-size: 1rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top:1.3rem;
+    margin-top: 1.3rem;
     margin-bottom: 1.3rem;
 }
 

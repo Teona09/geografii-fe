@@ -21,5 +21,6 @@ export class LevelService {
     const url = `${this.baseUrl}`;
     const params = HttpUtils.setParams({ regiune: region }, {});
     return this.http.get<LevelModel>(url, { params });
-  }
+  } 
+
 }

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { userBaseUrl } from '../constants/constants';
 import { User } from '../models/user.model';
-import { HttpUtils } from '../utils/http.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -39,9 +38,8 @@ export class UserService {
   }
 
   resetPassword(id: number, password: string): Observable<any>{
-    const url = `${this.baseUrl}/password/${id}`;
-    const params = HttpUtils.setParams(password, "");
-    return this.http.post(url,{params});
+    const url = `${this.baseUrl}/password/${id}?password=${password}`;
+    return this.http.post(url,{});
   }
 
   delete(id: number):Observable<any>{
