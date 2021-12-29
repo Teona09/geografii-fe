@@ -16,7 +16,7 @@
               <label class="labels">First Name</label
               ><input
                 type="text"
-                class="form-control"
+                class="form-control input"
                 placeholder="First Name"
                 formControlName="firstName"
                 required
@@ -26,7 +26,7 @@
               <label class="labels">Last Name</label
               ><input
                 type="text"
-                class="form-control"
+                class="form-control input"
                 placeholder="Last Name"
                 formControlName="lastName"
                 required
@@ -36,7 +36,7 @@
               <label class="labels">Email</label
               ><input
                 type="text"
-                class="form-control"
+                class="form-control input"
                 placeholder="Email"
                 formControlName="email"
                 required
@@ -80,7 +80,7 @@
       type="button"
       class="btn btn-primary delete-button"
       aria-label="Close"
-      (click)="modal.dismiss()"
+      (click)="modal.dismiss(); resetPasswordForm()"
     >
       <span aria-hidden="true">&times;</span>
     </button>
@@ -92,7 +92,7 @@
           <label class="labels">Password</label>
           <input
             type="password"
-            class="form-control"
+            class="form-control pass"
             name="password"
             formControlName="password"
             aria-describedby="password"
@@ -104,7 +104,7 @@
           <label class="labels">Confirm Password</label>
           <input
             type="password"
-            class="form-control"
+            class="form-control pass"
             name="repeatPassword"
             formControlName="repeatPassword"
             aria-describedby="repeatPassword"

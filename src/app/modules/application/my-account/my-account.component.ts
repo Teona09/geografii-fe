@@ -40,8 +40,8 @@ export class MyAccountComponent implements OnInit {
     private userService: UserService,
     private tokenStorage: TokenStorageService,
     private router: Router,
-    private modalService: NgbModal ,
-    private notifyService : NotificationService
+    private modalService: NgbModal,
+    private notifyService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -50,9 +50,10 @@ export class MyAccountComponent implements OnInit {
       .getUser(this.tokenStorage.getUser())
       .pipe(take(1))
       .subscribe((data) => {
-        if(data){
-        this.user = data;
-        this.initializeForm(data);}
+        if (data) {
+          this.user = data;
+          this.initializeForm(data);
+        }
       });
     this.resetPassForm = this.fb.group(
       {
@@ -61,6 +62,10 @@ export class MyAccountComponent implements OnInit {
       },
       { validators: this.passwordMatchValidator }
     );
+  }
+
+  resetPasswordForm() {
+    this.resetPassForm.reset();
   }
 
   initializeForm(user: User) {
@@ -76,21 +81,16 @@ export class MyAccountComponent implements OnInit {
     this.beforeUser = this.user;
     this.user = { ...this.user, ...this.form.value };
     this.userService.update(this.user).subscribe((data) => {
-      if(data){
-      this.user = data;
-      this.initializeForm(data);}
-      else{
-        this.notifyService.showError("Email is used by other player", "");
+      if (data) {
+        this.user = data;
+        this.initializeForm(data);
+      } else {
+        this.notifyService.showError('Email is used by other player', '');
         this.initializeForm(this.beforeUser);
       }
     });
   }
 
-  // delete() {
-  //   this.userService.delete(this.user.userId).subscribe((data) => {
-  //     this.router.navigate(['/login']);
-  //   });
-  // }
   delete() {
     this.userService
       .delete(this.user.userId)
@@ -129,9 +129,8 @@ export class MyAccountComponent implements OnInit {
     } else {
       control.get('repeatPassword').setErrors({ mismatch: true });
     }
-        
   }
-  openDeletePopUp(content:any){
-    this.modalService.open(content, {ariaLabelledBy: "confirmModalLabel"});
+  openDeletePopUp(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'confirmModalLabel' });
   }
 }
