@@ -11,7 +11,7 @@ import Data from '../../../../assets/info.json';
 })
 export class InfoComponent implements OnInit {
     public closeResult='';
-    public listItems = Data.Items as InformationModel[];
+    //public listItems = Data.Items as InformationModel[];
     public  infoList: InformationModel[];
     constructor(private modalService: NgbModal, private localStorage: LocalStorageService) {
   }

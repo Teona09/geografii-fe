@@ -1,5 +1,5 @@
 export interface InformationModel {
   id: number;
-  image: string;
+  imageUrl: string;
   text: string;
 }
