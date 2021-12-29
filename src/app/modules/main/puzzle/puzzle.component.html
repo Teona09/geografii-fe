@@ -1,87 +1,57 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="SliderBoard">
-      <div class="SliderBoardBorder">
-        <div class="row1">
-          <button
-            [ngClass]="{ 'hide-tile': matrix[0][0] == '' }"
-            (click)="moveTile(0, 0)"
-          >
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="SliderBoard">
+                <div class="SliderBoardBorder">
+                    <div class="row1">
+                        <button [ngClass]="{ 'hide-tile': matrix[0][0] == '' }" (click)="moveTile(0, 0)">
             <div class="image"><img [src]="matrix[0][0]" /></div>
           </button>
-          <button
-            [ngClass]="{ 'hide-tile': matrix[0][1] == '' }"
-            (click)="moveTile(0, 1)"
-          >
+                        <button [ngClass]="{ 'hide-tile': matrix[0][1] == '' }" (click)="moveTile(0, 1)">
             <div class="image"><img [src]="matrix[0][1]" /></div>
           </button>
-          <button
-            [ngClass]="{ 'hide-tile': matrix[0][2] == '' }"
-            (click)="moveTile(0, 2)"
-          >
+                        <button [ngClass]="{ 'hide-tile': matrix[0][2] == '' }" (click)="moveTile(0, 2)">
             <div class="image"><img [src]="matrix[0][2]" /></div>
           </button>
-        </div>
-        <div class="row2">
-          <button
-            [ngClass]="{ 'hide-tile': matrix[1][0] == '' }"
-            (click)="moveTile(1, 0)"
-          >
+                    </div>
+                    <div class="row2">
+                        <button [ngClass]="{ 'hide-tile': matrix[1][0] == '' }" (click)="moveTile(1, 0)">
             <div class="image"><img [src]="matrix[1][0]" /></div>
           </button>
-          <button
-            [ngClass]="{ 'hide-tile': matrix[1][1] == '' }"
-            (click)="moveTile(1, 1)"
-          >
+                        <button [ngClass]="{ 'hide-tile': matrix[1][1] == '' }" (click)="moveTile(1, 1)">
             <div class="image"><img [src]="matrix[1][1]" /></div>
           </button>
-          <button
-            [ngClass]="{ 'hide-tile': matrix[1][2] == '' }"
-            (click)="moveTile(1, 2)"
-          >
+                        <button [ngClass]="{ 'hide-tile': matrix[1][2] == '' }" (click)="moveTile(1, 2)">
             <div class="image"><img [src]="matrix[1][2]" /></div>
           </button>
-        </div>
-        <div class="row3">
-          <button
-            [ngClass]="{ 'hide-tile': matrix[2][0] == '' }"
-            (click)="moveTile(2, 0)"
-          >
+                    </div>
+                    <div class="row3">
+                        <button [ngClass]="{ 'hide-tile': matrix[2][0] == '' }" (click)="moveTile(2, 0)">
             <div class="image"><img [src]="matrix[2][0]" /></div>
           </button>
-          <button
-            [ngClass]="{ 'hide-tile': matrix[2][1] == '' }"
-            (click)="moveTile(2, 1)"
-          >
+                        <button [ngClass]="{ 'hide-tile': matrix[2][1] == '' }" (click)="moveTile(2, 1)">
             <div class="image"><img [src]="matrix[2][1]" /></div>
           </button>
-          <button
-            [ngClass]="{ 'hide-tile': matrix[2][2] == '' }"
-            (click)="moveTile(2, 2)"
-          >
+                        <button [ngClass]="{ 'hide-tile': matrix[2][2] == '' }" (click)="moveTile(2, 2)">
             <div class="image"><img [src]="matrix[2][2]" /></div>
           </button>
-        </div>
-        <button *ngIf="!start" class="btn btn-success btn-lg play" (click)="shuffleMatrix()">
+                    </div>
+                    <button *ngIf="!start" class="btn btn-success btn-lg play" (click)="shuffleMatrix()">
           Start Playing
         </button>
-      </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<ng-template #winModal let-modal>
-  <div class="modal-body-popup">
-    <h5 class="modal-text-popup">You recieved 10 points</h5>
-  </div>
-  <div class="modal-footer-popup">
-    <button
-      type="button"
-      class="btn btn-success btn-lg mr-2 rounded-lg"
-      (click)="modal.dismiss()"
-      routerLink="/main"
-    >
+    <ng-template #winModal let-modal>
+        <div class="modal-body-popup">
+            <h5 class="modal-text-popup">You recieved 10 points</h5>
+        </div>
+        <div class="modal-footer-popup">
+            <button type="button" class="btn btn-success btn-lg mr-2 rounded-lg" (click)="modal.dismiss()" routerLink="/main">
       Thanks
     </button>
-  </div>
-</ng-template>
+        </div>
+    </ng-template>
+</div>

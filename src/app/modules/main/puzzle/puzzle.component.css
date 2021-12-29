@@ -1,58 +1,71 @@
 .SliderBoard {
-  text-align: center;
+    text-align: center;
 }
 
 .hide-tile {
-  opacity: 0;
+    opacity: 0;
 }
+
 .play {
-  width: auto !important;
+    width: auto !important;
 }
+
 .image {
-  height: 100px;
-  width: 100px;
-  position: relative;
-  text-align: start;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    text-align: start;
 }
 
 img {
-  position: absolute;
-  height: 100px;
-  width: 100px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
 }
 
 .container-fluid {
-  height: calc(100vh - 60px);
+    height: calc(100vh - 60px);
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
 
-  text-align: center;
-  align-items: center;
-  align-content: center;
-}
 .row {
-  height: 100%;
+    height: 100%;
 }
+
 .SliderBoardBorder {
-  vertical-align: bottom;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  align-content: center;
+    vertical-align: bottom;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
 }
 
 .modal-text-popup {
-  text-align: center !important;
-  cursor: pointer;
-  font-size: 1rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-top: 1.3rem;
-  margin-bottom: 1.3rem;
+    text-align: center !important;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
 }
 
 .modal-footer-popup {
-  text-align: center;
-  margin-top: 1.35rem;
-  margin-bottom: 1.8rem;
+    text-align: center;
+    margin-top: 1.35rem;
+    margin-bottom: 1.8rem;
+}
+
+.wrapper {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 1)), url(../../../../assets/mapBG.png);
+    height: 100vh;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
