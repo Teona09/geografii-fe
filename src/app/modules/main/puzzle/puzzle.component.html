@@ -37,7 +37,7 @@
           </button>
                     </div>
                     <button *ngIf="!start" class="btn btn-success btn-lg play" (click)="shuffleMatrix()">
-          Start Playing
+          Începe
         </button>
                 </div>
             </div>
@@ -46,11 +46,11 @@
 
     <ng-template #winModal let-modal>
         <div class="modal-body-popup">
-            <h5 class="modal-text-popup">You recieved 10 points</h5>
+            <h5 class="modal-text-popup">Ai primit 10 puncte!</h5>
         </div>
         <div class="modal-footer-popup">
             <button type="button" class="btn btn-success btn-lg mr-2 rounded-lg" (click)="modal.dismiss()" routerLink="/main">
-      Thanks
+      Mulțumesc
     </button>
         </div>
     </ng-template>

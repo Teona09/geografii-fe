@@ -11,7 +11,7 @@
                             <p class="card-text text-truncate">{{ info.text }}</p>
                         </div>
                         <div class="d-flex justify-content-center flex-direction-column btn-group btn-group-toggle">
-                            <button class="btn btn-lg btn-outline-primary custom-btn" (click)="open(content)">More info</button>
+                            <button class="btn btn-lg btn-outline-primary custom-btn" (click)="open(content)">Citește mai departe</button>
                             <ng-template #content let-modal>
                                 <div class="modal-body">
                                     <div class='image-area'>
@@ -20,7 +20,7 @@
                                     <div>{{info.text}}</div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Închide</button>
                                 </div>
                             </ng-template>
                         </div>

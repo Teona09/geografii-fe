@@ -37,7 +37,7 @@ export class AuthenticationService {
         },
         (err) => {
           console.log(err);
-          this.notifyService.showError("Invalid Email or Password", "")
+          this.notifyService.showError("Email sau Parolă invalidă", "")
         }
       );
   }

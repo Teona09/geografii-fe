@@ -82,7 +82,7 @@ export class PuzzleComponent implements OnInit {
       }
     }
     if (!didNotWin && this.start) {
-      console.log('You Won');
+      
       this.start = false;
       this.modalService.open(this.editModal);
       this.addPoints();
@@ -96,7 +96,7 @@ export class PuzzleComponent implements OnInit {
       this.checkForCompletion();
     }
     else{
-      this.notifyService.showWarning("You must start playing in order to move tiles", "");
+      this.notifyService.showWarning("Trebuie să pornești jocul", "");
     }
   }
 

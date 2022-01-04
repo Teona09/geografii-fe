@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
             this.registerForm.reset();
         }
         else{
-          this.notifyService.showError("Email is already used", "")
+          this.notifyService.showError("Emailul este deja folosit", "")
         }
       },
       (err) => {

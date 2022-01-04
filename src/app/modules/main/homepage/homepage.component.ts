@@ -32,6 +32,15 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     window.document.body.style.backgroundColor = '#000000';
+    this.localStorage.setItem(
+      {},
+      LocalStorageKey.questions
+    );
+
+    this.localStorage.setItem(
+      {},
+      LocalStorageKey.informations
+    );
   }
 
   selectPrincipat(principat: string) {
@@ -51,7 +60,7 @@ export class HomepageComponent implements OnInit {
             LocalStorageKey.informations
           );
         } else {
-          this.notificationService.showError('eroare naspa', '');
+          this.notificationService.showError('Eroare la conectarea cu baza de date', '');
         }
       });
   }

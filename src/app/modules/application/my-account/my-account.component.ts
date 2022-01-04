@@ -85,7 +85,7 @@ export class MyAccountComponent implements OnInit {
         this.user = data;
         this.initializeForm(data);
       } else {
-        this.notifyService.showError('Email is used by other player', '');
+        this.notifyService.showError('Emailul este deja folosit', '');
         this.initializeForm(this.beforeUser);
       }
     });

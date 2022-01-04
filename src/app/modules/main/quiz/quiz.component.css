@@ -31,7 +31,7 @@
 .submit-btn {
     height: 3rem;
     width: 7rem;
-    font-size: 1.3rem;
+    font-size: 100%;
     border-radius: 0.7rem;
     box-shadow: 1px 1px 1px 1px #666;
 }

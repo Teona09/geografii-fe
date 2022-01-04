@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4 d-flex justify-content-center">
         <div class="login-wrap py-5">
-          <h3 class="text-center mb-0">Sign in</h3>
+          <h3 class="text-center mb-0">Logare</h3>
           <form [formGroup]="loginForm" class="login-form" action="#">
             <div class="form-group">
               <div
@@ -30,7 +30,7 @@
               <input
                 class="form-control"
                 type="password"
-                placeholder="Password"
+                placeholder="Parola"
                 required=""
                 formControlName="password"
               />
@@ -39,7 +39,7 @@
           <div class="buttons">
             <div class="txt">
               <a href="login/register"
-                >Create your Account
+                >Nu ai cont? Creează unul
                 <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
               </a>
             </div>
@@ -50,7 +50,7 @@
                 type="submit"
                 [disabled]="loginForm.invalid"
               >
-                Login
+              Conectează-te
               </button>
             </div>
           </div>

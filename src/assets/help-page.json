@@ -2,19 +2,19 @@
   "Items": [
     {
       "title": "Regulile jocului",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum."
+      "content": "Trebuie acumulate cât mai multe puncte din răspunsuri corecte la întrebări, pentru a dovedi că ați dobândit cunoștințe generale despe România. Prin rezolvarea puzzle-urilor vi se dezvoltă gândirea strategică, coordonarea, imaginația, concentrarea și răbdarea."
     },
     {
-      "title": "Cum pot sa obtin mai multe puncte?",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum."
+      "title": "Cum pot să obțin mai multe puncte?",
+      "content": "Punctele se obțin răspunzând corect la întrebări sau rezolvând puzzle-uri."
     },
     {
-      "title": "Cum pot sa imi modific numele de utilizator?",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum."
+      "title": "Cum pot să îmi modific adresa de email?",
+      "content": "Pe pagina cu informațiile contului în căsuța unde se găsește adresa de email curentă se înlocuiește aceata cu adresa de email nouă și se apasă pe butonul \"Salvează Modificările\"."
     },
     {
-      "title": "Unde pot sa gasesc mai multe informatii despre Romania?",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate nisl sed tellus consectetur, at finibus ex posuere. Nam eu fermentum ante, a posuere massa. Donec fringilla commodo venenatis. Aenean luctus finibus magna, id sodales ex aliquam eget. Vivamus bibendum turpis eget est dictum cursus. Donec pharetra id lorem bibendum."
+      "title": "Unde pot să găsesc mai multe informații despre România?",
+      "content": "Informațiile se pot găsi în secțiunea de informații a fiecărei regiuni, iar pentru informații suplimentare care nu se regăsesc pe site vă recomandam site-ul https://ro.wikipedia.org/."
     }
   ]
 }

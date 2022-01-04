@@ -3,9 +3,9 @@
     <div class="col-md-5 border-right" id="user-info">
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h1 class="text-right">Profile Settings</h1>
+          <h1 class="text-right">Datele contului</h1>
           <h3 class="points">
-            <h5>Points:&nbsp;</h5>
+            <h5>Puncte:&nbsp;</h5>
             <h4>{{ form.controls.usablePoints.value }}</h4>
           </h3>
         </div>
@@ -13,21 +13,21 @@
         <form [formGroup]="form">
           <div class="row mt-2">
             <div class="col-md-12">
-              <label class="labels">First Name</label
+              <label class="labels">Prenume</label
               ><input
                 type="text"
                 class="form-control input"
-                placeholder="First Name"
+                placeholder="Prenume"
                 formControlName="firstName"
                 required
               />
             </div>
             <div class="col-md-12">
-              <label class="labels">Last Name</label
+              <label class="labels">Nume</label
               ><input
                 type="text"
                 class="form-control input"
-                placeholder="Last Name"
+                placeholder="Nume"
                 formControlName="lastName"
                 required
               />
@@ -50,7 +50,7 @@
             type="button"
             (click)="open(content)"
           >
-            Reset Password
+            Resetează Parola
           </button>
           <button
             class="btn btn-primary profile-button"
@@ -58,14 +58,14 @@
             *ngIf="form.dirty && !form.invalid"
             (click)="save()"
           >
-            Save Changes
+          Salvează Modificările
           </button>
           <button
             class="btn btn-primary delete-button"
             type="button"
             (click)="openDeletePopUp(modal_content)"
           >
-            Delete Account
+            Șterge Contul
           </button>
         </div>
       </div>
@@ -75,7 +75,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Reset Password</h4>
+    <h4 class="modal-title" id="modal-basic-title">Resetează Parola</h4>
     <button
       type="button"
       class="btn btn-primary delete-button"
@@ -89,7 +89,7 @@
     <div class="modal-body">
       <div class="m-4 form-group justify-content-center">
         <div class="col-md-12">
-          <label class="labels">Password</label>
+          <label class="labels">Parola</label>
           <input
             type="password"
             class="form-control pass"
@@ -101,7 +101,7 @@
         </div>
 
         <div class="col-md-12">
-          <label class="labels">Confirm Password</label>
+          <label class="labels">Confirmă Parola</label>
           <input
             type="password"
             class="form-control pass"
@@ -116,7 +116,7 @@
           class="col-md-12 error-message"
           *ngIf="resetPassForm.dirty && resetPassForm.valid === false"
         >
-          Fields are not valid!
+          Câmp invalid!
         </div>
 
         <div class="modal-footer">
@@ -126,7 +126,7 @@
             (click)="modal.close('Save click'); submit()"
             [disabled]="resetPassForm.invalid || resetPassForm.pristine"
           >
-            Save
+            Salvează
           </button>
         </div>
       </div>
@@ -136,11 +136,11 @@
 
 <ng-template #modal_content let-modal>
     <div class="modal-header-popup">
-      <h5 class="modal-title-popup" id="confirmModalLabel">Delete Account</h5>
+      <h5 class="modal-title-popup" id="confirmModalLabel">Șterge Contul</h5>
     </div>
     <div class="modal-body-popup">
       <h5 class="modal-text-popup">
-        Are you sure you want to delete your account?
+        Ești sigur că vrei să-ți ștergi contul?
       </h5>
     </div>
     <div class="modal-footer-popup">
@@ -149,14 +149,14 @@
         class="btn btn-secondary btn-lg mr-2 rounded-lg"
         (click)="modal.dismiss()"
       >
-        Cancel
+        Anulează
       </button>
       <button
         type="button"
         class="btn btn-danger btn-lg rounded-lg"
         (click)="delete()"
       >
-        Delete
+        Șterge
       </button>
     </div>
   </ng-template>
