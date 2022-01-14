@@ -85,9 +85,13 @@ export class MyAccountComponent implements OnInit {
         this.user = data;
         this.initializeForm(data);
       } else {
-        this.notifyService.showError('Emailul este deja folosit', '');
+        this.notifyService.showError('Email incorect', '');
         this.initializeForm(this.beforeUser);
       }
+    },
+    (err) => {
+      this.notifyService.showError("Email incorect", "");
+      this.initializeForm(this.beforeUser);
     });
   }
 

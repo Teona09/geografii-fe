@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       repeatPassword: ['', [Validators.required]],
     }, { validators: this.passwordMatchValidator });
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
         }
       },
       (err) => {
-        console.log(err);
+        this.notifyService.showError("Emailul este deja folosit", "");
       }
     );
     
